@@ -1,0 +1,93 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;
+charset=UTF-8">
+<title>Surface-from-Gradients: An Approach Based on Discrete Geometry Processing</title></head><body>
+
+<center><h1>Surface-from-Gradients: An Approach Based on Discrete Geometry Processing</h1></center>
+
+<center><h3>Wuyuan Xie, Yunbo Zhang, Charlie C. L. Wang, and Ronald C.-K. Chung</h3></center>
+
+<center>Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong</center>
+
+<br>
+<center>
+<img src="CVPRReconProj_files/image001.jpg" width=864 height=270><p>
+<b>Fig.1:</b> This figure illustrates the overview of our proposed local-global discrete geometry processing.
+</center>
+
+<hr><a name="Abstract"><b>Abstract</b></a>
+
+<br>In this paper, we propose an efficient method to reconstruct surface-from-gradients (SfG). Our method is formulated under the framework of discrete geometry processing. Unlike the existing SfG approaches, we transfer the ontinuous reconstruction problem into a discrete space and efficiently solve the problem via a sequence of least-square optimization steps. Our discrete formulation brings three advantages:1) the reconstruction preserves sharp-features, 2) sparse/incomplete set of gradients can be well handled, and 3) domains of computation can have irregular boundaries. Our formulation is direct and easy to implement, and the comparisons with state-of-the-arts show the effectiveness of our method.
+
+<hr><a name="Download"><b>Download</b></a>
+<br>
+[<a href="../pubs/CVPRRecon2014.pdf">Paper</a>] 
+[<a href="CVPRRecon_matlab.rar">MATLAB Executable Code</a>] 
+[<a href="CVPRRecon_matlab_source_code.rar">MATLAB Source Code</a>] 
+[<a href="CVPRRecon_VS2008.rar">C++ Code in VS_2008</a>] 
+[<a href="CVPRRecon_dataset.rar">Dataset</a>]
+
+<hr><a name="Application"><b>Application</b></a>
+<br>
+Our efficient surface-from-gradients (SfG) reconstruction method mainly serves for shape from shading [1] and photometric stereo [2]. Shape from shading and photometric stereo methods can estimate a dense but noisy gradient field, which is used to calculate the height field by integration [3,4] whose outputs are over-smooth and distorted. In our framework, we avoid by using a discrete setup: Each pixel is regarded as a square facet and corresponding to a sample in the gradient field, then a two-step discrete geometry processing (DGP) method is iteratively conducted as: First, deform the overall mesh (consisting of pixel facets) to let each facet follow the demanded normal vectors (we call this step as local shaping), and then a global blending step is applied to glue all the facets back into a connected mesh surface (see Figure 1). To the best of our knowledge, this is the first approach formulating the SfG problem in DGP, and it is fast and efficient (in most case, it only takes two steps to converge to a satisfied solution). Our main advantages can be concluded as three-fold:
+<br><br>
+
+<b>1. Sharp-feature Preservation:</b> As the normal vectors are only enforced inside facets in the local shaping step, sharp-features can be formed along the boundary of facets. Meanwhile, the surface smoothness is preserved by the least-square optimization in the global blending step.
+<br>
+<img src="CVPRReconProj_files/image002.gif" width=960 height=235><p>
+<b>Fig.2:</b> As the normal vectors are only enforced inside facets in the local shaping step, sharp-features can be formed along the boundary of facets. Meanwhile, the surface smoothness is preserved by the least-square optimization in the global
+blending step.
+
+<br><br><b>2. Incomplete Data:</B> The formulate of our DGP-base SfG approach can be applied to incomplete data sets, in which the gradients on some pixels are not known. Examples with up to 55% information missed can be successfully reconstructed.
+<br>
+<img src="CVPRReconProj_files/image003.gif" width=609 height=528><p>
+<b>Fig.3:</b> Tests of our approach on inputs with different amount of noises added: (a) Color maps illustrate the distribution of noises and colors denote the amount
+of perturbation in terms of angle degree. (b) When treating all noisy samples
+as inliers, the computation of our approach converges in 5 steps. (c) When
+considering the noisy samples as outliers and removing them from the
+computation - that leads to an input with sparse samples, our approach can
+successfully converge to a reconstruction with more higher quality in 18, 38,
+143 and 195 steps of iteration respectively..
+
+<br><br><b>3. Irregular Domain Boundary:</B> Benefit from transforming the computing media to a mesh surface, the reconstruction of surfaces with boundaries in general shapes can be easily supported by our approach.
+<br>
+
+
+<hr><a name="Comparison"><b>Quantitative Comparison</b></a>
+<br>
+<img src="CVPRReconProj_files/image004.gif" width=960 height=453><p>
+<b>Fig.4:</b> In total, we test 20 models and compare the results
+generated from eight different algorithms, including ours, Poisson [4], 
+alphasurface [5], M-estimator [6], regularization [7], anisotropic
+diffusion [8] and kernel-based fitting [9, 10]. The averages of relative errors
+are measured on all the results to obtain a
+quantitative comparison. Both the noise-free input (top-left) and the input with
+Gaussian noises (top-right) are tested. Our approach outperforms other methods
+in both cases.
+
+
+
+<hr><a name="References"><b>References</b></a>
+<br>
+[1] B.K.P. Horn, "Shape from shading: A method for obtaining the shape of a smooth opaque object from one view", Massachusetts Institute of Technology, Cambridge, MA, 1970.
+<br>
+[2] R.J. Woodham, "Photometric method for determining surface orientation from multiple images", Optical engineering, 19(1):139-144, 1980.
+<br>
+[3] R.T. Frankot and R. Chellappa, "A method for enforcing integrability in shape from shading algorithms", IEEE Transactions on Pattern Analysis and Machine Intelligence, 10(4):439-451, 1988.
+<br>
+[4] T. Simchony, R. Chellappa, and M. Shao, "Direct analytical methods for solving poisson equations in computer vision problems", IEEE Transactions on Pattern Analysis and Machine Intelligence, 12(5):435-446, 1990.
+<br>
+[5] A. Agrawal, R. Raskar, and R. Chellappa, "What is the range of surface reconstructions froma gradient field?", In European Conference Computer Vision (ECCV), 2006, pages 578-591. Springer, 2006.
+<br>
+[6] P. Charbonnier, L. Blanc-Feraud, G. Aubert, and M. Barlaud, "Deterministic edge-preserving regularization in computed imaging", IEEE Transactions on Image Processing, 6(2):298-311, 1997.
+<br>
+[7] G. Aubert and P. Kornprobst, Mathematical Problems in Image Processing: Partial Differential Equations and the Calculus of Variations (Applied Mathematical Sciences). Springer-Verlag New York, Inc., 2006.
+<br>
+[8] P. Perona and J.Malik, "Scale-space and edge detection using anisotropic diffusion", IEEE Transactions on Pattern Analysis and Machine Intelligence, 12(7):629-639, 1990.
+<br>
+[9] H.S. Ng, T.P. Wu, and C.K. Tang, "Surface-from-gradients without discrete integrability enforcement: A gaussian kernel approach", IEEE Transactions on Pattern Analysis and Machine Intelligence, 32(11):2085-2099, 2010.
+<br>
+[10] T.P. Wu. Source code of "surface-from-gradients without discrete integrability enforcement: A gaussian kernel approach", http://www.cse.ust.hk/~pang/.
+
+<a href="http://www3.clustrmaps.com/counter/maps.php?url=http://www2.mae.cuhk.edu.hk/~cwang/" id="clustrMapsLink"  target="new"></a>
+
+</body></html> 

@@ -1,0 +1,254 @@
+﻿
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>LDNI-DLL: A Dynamic-Link Library for Solid Modeling on GPUs</title>
+
+</head>
+
+<body>
+
+<center><h1>LDNI-DLL: A Dynamic-Link Library for Solid Modeling on GPUs</h1></center>
+<font size="1" face="Verdana">
+<center><h1>
+<a href="https://sites.google.com/site/debbieleung22">Yuen-Shan Leung</a> and 
+<a href="http://www.mae.cuhk.edu.hk/~cwang">Charlie C.L. Wang</a>
+</h1></center></font>
+
+<center>
+
+
+<a href="#WHATISLDNIDLL">What is LDNI-DLL?</a> <a href="#COPYRIGHT">Copyright</a> <a href="#DLLDOWNLOAD">Download</a> 
+<a href="#EXAMPLEOFUSAGE01">Example 1</a> <a href="#EXAMPLEOFUSAGE02">Example 2</a> <a href="#EXAMPLEOFUSAGE03">Example 3</a>
+</center>
+
+<hr>
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/G75mS1VGqx0" frameborder="0" allowfullscreen></iframe></center>
+<hr>
+<a name="WHATISLDNIDLL">
+<b>What is LDNI-DLL?</b></a><br>
+
+LDNI-DLL is a wrapped <A HREF="https://en.wikipedia.org/wiki/Dynamic-link_library" target="new">dynamic-link library</A> for the research code of highly parallel LDNI-based solid modeling that runs on the many-cores of GPU. Our library provides the implementation of method presented in the following paper, where the source code can be found at the page: 
+<A HREF="http://ldnibasedsolidmodeling.sourceforge.net/" target="new">[Link]</A>. 
+The purpose of this DLL is to allow developers, who are not familiar with the CUDA development, to benefit from the performance of highly parallel solid modeling. Note that, in order to use LDNI-DLL, you only need to install the most updated driver for NVIDIA graphics card but not the CUDA development enviornment. 
+
+
+<!--------------
+CSRS is a library written in C++, which supports algorithms for exact spherical range-search in arbitrarily dimensions.<br> 
+<br>
+Range-search with a radius <i>r</i> for a query <i>q</i> on a set of data points <b>P</b> is an operation to find all the neighbors <i>p</i> the 
+distances from which to <i>q</i> are not larger than <i>r</i>. As the range of search is a d-dimensional sphere, this is called spherical range-search <b>(SRS)</b>.<br>
+
+<br>
+
+Different from finding <i>k</i> approximate nearest neighbors (ANNs), exact SRS is needed in geometry processing and physical 
+simulation to avoid missing small features. With the help of a balanced AABB-tree, the spatial coherence of query points
+ and the temporal coherence of dynamic points are exploited to achieve very efficient range-search and hierarchical update.<br>
+<br> 
+------------->
+
+<br><br>
+<b>Reference:</b><br>
+
+[1] Charlie C.L. Wang, Yuen-Shan Leung, and Yong Chen, "Solid modeling of polyhedral objects by Layered Depth-Normal Images on the GPU", Computer-Aided Design, vol.42, no.6, pp.535-544, June 2010.<br>
+[2] Charlie C.L. Wang, and Dinesh Manocha, "GPU-based offset surface computation using point samples", Computer-Aided Design, Special Issue of 2012 Symposium on Solid and Physical Modeling, October 29-31, 2012, Dijon, France, vol.45, no.2, pp.321-330, February 2013.<br>
+[3] Supplementary Technicanl Report - "Intersection-free dual contouring on uniform grids: an approach based on convex/concave analysis" [<a href="http://www.mae.cuhk.edu.hk/~cwang/pubs/TRIntersectionFreeDC.pdf">PDF</a>]<br>
+
+
+<hr>
+<a name="COPYRIGHT"><b>COPYRIGHT</b></a><br>
+
+All rights about the program are reserved by Yuen-Shan Leung and Charlie C.L. Wang 
+at the Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong. In no event shall 
+the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising 
+out of the use of this program.
+
+
+
+
+
+
+<hr>
+<a name="DLLDOWNLOAD"><b>DOWNLOAD</b></a><br>
+
+This library is developed based on nVIDIA CUDA GPUs with compute capability larger than 2.0.<br>
+<br>
+
+The current version of LDNI Dynamic-Link Library and example code can be downloaded here.
+<dt><li>LDNI DLL Version 1.3: <a href="LDNI_DLL_1.3.zip">LDNI_DLL_1.3.zip</a> (Date: August 8, 2017)</li></dt>
+
+
+
+
+<hr>
+<a name="EXAMPLEOFUSAGE01"><b>Example of Boolean Operation</b></a><br>
+
+<textarea rows="60" cols="210">
+#include <stdio.h>
+#include <Windows.h>
+#include "LDNIDLL.h"
+#include "GL\glew.h"
+
+int main(void)
+{
+	//---------------------------------------------------------------------------------------------
+	//	Initialization
+	//---------------------------------------------------------------------------------------------
+	if (initCUDA(2, 0) == 0) return 0;
+	//Mesh
+	struct mesh *stlMeshA = malloc(sizeof(struct mesh));
+	struct mesh *stlMeshB = malloc(sizeof(struct mesh));
+	struct mesh *outMesh = malloc(sizeof(struct mesh));
+	//---------------------------------------------------------------------------------------------
+	//LDNI
+	struct cuda_ldni *solid = malloc(sizeof(struct cuda_ldni));
+	struct cuda_ldni *Outsolid = malloc(sizeof(struct cuda_ldni));
+	//---------------------------------------------------------------------------------------------
+#ifdef USING_STL_FILE
+	char *filenameA = "data//sphere.stl";			// The name of file for meshA
+	char *filenameB = "data//box.stl";			// The name of file for meshB
+	int triNum = ImportSTLFile(filenameA, stlMeshA);	// Input model for meshA
+	int triNumB = ImportSTLFile(filenameB, stlMeshB);	// Input model for meshB
+#else	// OBJ file format is used
+	char *filenameA = "data//fanDiskFine.obj";		// The name of file for meshA
+	char *filenameB = "data//cubeTrgl.obj";			// The name of file for meshB
+	int triNumA = ImportOBJFile(filenameA, stlMeshA);	// Input model for meshA
+	int triNumB = ImportOBJFile(filenameB, stlMeshB);	// Input model for meshB
+#endif
+
+	//---------------------------------------------------------------------------------------------
+	//	Computing by using LDNI solid modeling library
+	//---------------------------------------------------------------------------------------------
+	if (CreateGLWindow("Temp OpenGL Context for Sampling", 640, 480, 16, fullscreen))
+	{
+		//--------------------------------------------------------------------------------------
+		//	Boolean operations are taking by the following steps
+		//		1) Convert meshA to LDNI solid;
+		//		2) Perform Boolean operations with meshB, where the 3rd parameter of "LDNIBoolean" indicates the type of Boolean operation
+		//			( 0 -- Union; 1 -- Intersection; 2 -- Subtraction (as meshA \ meshB); 3 -- Inverse subtraction (as meshB \ meshA) );  
+		//		3) Rotate and translate meshB;
+		//		4) Perform Boolean operations with meshB again;
+		//		5) Convert the result back to a mesh -- outMesh;
+		//--------------------------------------------------------------------------------------		
+		LDNISampling(stlMeshA, solid, boundingBox, 256);  
+		LDNIBoolean(solid, stlMeshB, 2);
+		float axisVec[] = { 1, 1, 1 };
+		Rotation(stlMeshB, axisVec, 25);   
+		LDNIBoolean(solid, stlMeshB, 0);  
+		Translation(stlMeshB, 0.1f, 0.2f, 0.1f);
+		LDNIBoolean(solid, stlMeshB, 0);
+		LDNIContouring(solid, outMesh, 256, 0);
+#ifdef USING_STL_FILE
+		ExportSTLFile("data//result.stl", outMesh);
+#else	// OBJ file format is used
+		ExportOBJFile("data//result.obj", outMesh);
+#endif
+		FreeLDNI(solid);
+		
+		KillGLWindow();
+	}
+
+	//---------------------------------------------------------------------------------------------
+	//	Release the memory of mesh
+	//---------------------------------------------------------------------------------------------
+	free(stlMeshA->faceArray);	free(stlMeshA->verArray);	free(stlMeshA->normArray);
+	free(stlMeshB->faceArray);	free(stlMeshB->verArray);	free(stlMeshB->normArray);
+	free(outMesh->faceArray);	free(outMesh->verArray);	free(outMesh->normArray);
+	free(stlMeshA);		free(stlMeshB);		free(outMesh);		
+
+	//---------------------------------------------------------------------------------------------
+	//	Release the memory of LDNI solids's pointer
+	//---------------------------------------------------------------------------------------------
+	free(solid);		free(Outsolid);	
+}
+</textarea>
+
+
+<hr><a name="EXAMPLEOFUSAGE02"><b>Example of Offsetting</b></a><br>
+
+<textarea rows="30" cols="210">
+#include <stdio.h>
+#include <Windows.h>
+#include "LDNIDLL.h"
+#include "GL\glew.h"
+
+int main(void)
+{
+	// ... ...	// The same code of initialization as the first example
+
+	if (CreateGLWindow("Temp OpenGL Context for Sampling", 640, 480, 16, fullscreen))
+	{
+		//--------------------------------------------------------------------------------------
+		//	Combination of Offsetting together with Boolean 
+		//		1. Convert meshA to ldni solidA
+		//		2. Offset (shrinking) solidA
+		//		3. Perform Intersection with meshB
+		//		4. Convert the result back to a mesh
+		//--------------------------------------------------------------------------------------
+		LDNISampling(stlMeshA, solid, boundingBox, 256);
+		float sampleWidth = solid->m_sampleWidth;
+		LDNIOffsetting(solid, Outsolid, -15.0f * sampleWidth);
+		LDNIBoolean(Outsolid, stlMeshB, 0);
+		LDNIContouring(Outsolid, outMesh, 256, 0);
+#ifdef USING_STL_FILE
+		ExportSTLFile("data//result.stl", outMesh);
+#else	// OBJ file format is used
+		ExportOBJFile("data//result.obj", outMesh);
+#endif
+		FreeLDNI(solid);
+		FreeLDNI(Outsolid);
+	}
+  
+	// ... ...	// The same code of memory release as the first example
+}
+</textarea>
+
+
+<hr><a name="EXAMPLEOFUSAGE03"><b>Example of Hollowing</b> (This is a combination of offsetting and hollowing.)</a><br>
+
+<textarea rows="30" cols="210">
+#include <stdio.h>
+#include <Windows.h>
+#include "LDNIDLL.h"
+#include "GL\glew.h"
+
+int main(void)
+{
+	// ... ...	// The same code of initialization as the first example
+
+	if (CreateGLWindow("Temp OpenGL Context for Sampling", 640, 480, 16, fullscreen))
+	{
+		//--------------------------------------------------------------------------------------
+		//	For hollowing a model by uniform offsetting 
+		//		1. Convert meshA to ldni solidA
+		//		2. Offset (shrinking) solidA
+		//		3. Perform inverse subtraction with meshA
+		//		4. Convert the result back to a mesh
+		//--------------------------------------------------------------------------------------
+		LDNISampling(stlMeshA, solid, boundingBox, 256);
+		float sampleWidth = solid->m_sampleWidth;
+		LDNIOffsetting(solid, Outsolid, -5.0f * sampleWidth);
+		LDNIBoolean(Outsolid, stlMeshA, 3);
+		LDNIContouring(Outsolid, outMesh, 256, 0);
+#ifdef USING_STL_FILE
+		ExportSTLFile("data//result.stl", outMesh);
+#else	// OBJ file format is used
+		ExportOBJFile("data//result.obj", outMesh);
+#endif
+		FreeLDNI(solid);
+		FreeLDNI(Outsolid);
+	}
+  
+	// ... ...	// The same code of memory release as the first example
+}
+</textarea>
+
+<hr>
+
+<a href="http://www.mae.cuhk.edu.hk/~cwang">HOME</a>
+
+
+
+
+</body></html> 

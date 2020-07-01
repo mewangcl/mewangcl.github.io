@@ -1,0 +1,314 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>Pattern Computation for Compression and Performance Garment</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoNormal><b><span style='font-size:16.0pt'>Pattern Computation for
+Compression and Performance Garment</span></b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b><span style='font-size:11.0pt'>Principal Investigator: </span></b></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Charlie C.L. Wang (Department
+of Mechanical and Automation Engineering, The Chinese University of Hong Kong)</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:11.0pt'>Co-investigator(s):</span></b></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Kin-Chuen Hui (Department of
+Mechanical and Automation Engineering, The Chinese University of Hong Kong)</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Penelope Watkins (Center of Fashion Science, London College of Fashion, University of the Arts London)</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:11.0pt'>Funding Resource:</span></b></p>
+
+<p class=MsoNormal>This project is supported by the Shun Hing Institute of
+Advanced Engineering (SHIAE) 2008</p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b>Abstract:</b></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>In the clothing industry,
+compression garments are increasingly being used to mould and confine the
+malleable shape of the human body. The garment design may require variation in
+pressure ranging from normal through increased strain in specific areas for the
+particular application. Therefore compression garments need to be customized
+because body shapes differ and require different strain distribution. The 3D
+body shape can be obtained by any popular 3D data-acquisition means (e.g., a
+human body laser scanner). However, it is the 2D pattern – fabricated into the
+3D shape combined with the fabric parameters, which brings about the desired
+strain distribution – that has to be determined. At present, the 2D pattern
+design and garment-to-body fit is accomplished through trial-and-error. This
+subjective procedure is inefficient, inaccurate and costly, as many prototypes
+have to be produced. Therefore, a computer program is desirable that can
+automatically generate 2D patterns from an input of the 3D shape that, when
+fabricated into the final 3D garment, the 2D pattern profiles give the designed
+strain and pressure on the human body. In this research we propose to develop
+techniques to compute 2D meshes that can generate a user-defined strain
+distribution through proper distortion, when folded onto the 3D body.</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b>Project Objectives:</b></p>
+
+<p class=MsoNormal>1.&nbsp;&nbsp; Develop a new physical/geometric approach
+that is able to model complicated elastic behaviors of fabrics, and determine
+the 2D patterns of a given 3D mesh surface satisfying the given strain and/or
+normal pressure distribution.</p>
+
+<p class=MsoNormal>2.&nbsp;&nbsp; Investigate numerical schemes to compute
+optimal 2D patterns efficiently.</p>
+
+<p class=MsoNormal>3.&nbsp;&nbsp; Develop a test-bed to evaluate the
+material-related coefficients in the developed physical/geometric model and
+verify the simulation results according to experimental tests.</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>Background of Research:</b></p>
+
+<p class=MsoNormal>In the clothing industry, compression garment is employed to
+plastic the shape of a human body so that certain specified strain (or
+compression) can be obtained at some designated places on the body (see Figure
+1-3). The 3D body shape can be obtained by any 3D popular data-acquisition
+means (e.g., a human body laser scanner, see [1] and [2]). However, no method
+has been successfully investigated to compute the 2D patterns for compression
+(or performance) garments by a computer program automatically. This motivates
+the work proposed in this project.</p>
+
+<p class=MsoNormal>In computer graphics, the pioneer work of Terzopoulos et al.
+[3] provided a general physically-based modeling method for elastic objects,
+which employs the finite-element and the finite-difference methods to solve the
+dynamic governing equations that simulate the deformation of objects like
+cloth, rubber, metal, etc. Following that work, much effort has been given to
+improving the simulation of cloth, either in verisimilitude or efficiency
+aspects [4-8]. In all of these works, however, the input is a planar pattern
+(tessellated), and their common purpose is to simulate/predict the
+three-dimensional shape and motion under some physical theorem. The problem to
+solve in this research is the inverse – given a 3D shape and certain associated
+required physical properties (e.g., strain or pressure), how to determine the 2D
+patterns that can generate such physical properties. No above existing
+approaches can be directly applied here.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Another sort of research in literature related to our work
+is mesh parameterization and surface flattening. Similar to our work here, the
+parameterization of a given 3D mesh surface concerns with finding the
+corresponding 2D parametric domain via surface flattening. In general, a
+surface parameterization inevitably introduces distortion in either angle or
+area. All the known parameterization methods are based on how to minimize the
+distortions (see [9] for a detailed review). Among the abundant literature of
+mesh parameterization, only a few schemes (e.g., [10-12]) generate a planar
+domain with a free boundary so that it can be employed to compute the shape of
+2D patterns. However, they never addressed the problem of how to satisfy
+certain given strain and compression in the 3D shape fabricated from the
+computed 2D patterns. In the realm of computer-aided design, the surface
+flattening for pattern design has been studied from various perspectives (cf.
+[13-15]). Nevertheless, neither mesh parameterization nor mesh flattening
+approaches provides a solution to the physical/geometric problem posed in this
+research.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Recently, in [16], a woven-model based geometric approach is
+proposed for the design of elastic medical braces, where the elastic brace worn
+by a human body is simulated by a woven model with orthogonal warp and weft
+threads. In that work, the elastic behavior is simulated by three types of
+springs: warp, weft and diagonal. An elastic energy is formulated with these
+springs, and a diffusion process is adopted to minimize the elastic energy that
+determines the distribution of woven nodes on the given 3D surface, so to
+obtain the desired 3D-to-2D mapping. There are however serious deficiencies in
+the approach of [16]:</p>
+
+<p class=MsoNormal><span lang=ZH-CN style='font-family:宋体'>&#8226;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Only the elasticity in two directions – warp and weft – is considered;
+therefore, when in equilibrium, the strain (and stress) on a single weft or
+warp thread is a constant. The result is that only very simple patterns of
+strain distribution can be simulated by the woven model.</p>
+
+<p class=MsoNormal><span lang=ZH-CN style='font-family:宋体'>&#8226;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The computation of re-distributing the woven nodes on the surface is based on
+the knowledge of a strain distribution. However, computing such strain
+distribution in general is not straightforward. And thus again, the woven-model
+based approach in [16] can only mimic very simple and limited patterns of
+strain distribution.</p>
+
+<p class=MsoNormal><span lang=ZH-CN style='font-family:宋体'>&#8226;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The strains on the springs around a point with a user specified normal pressure
+is calculated by fitting a quadratic polynomial. Such an approximation is not
+accurate enough.</p>
+
+<p class=MsoNormal><span lang=ZH-CN style='font-family:宋体'>&#8226;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The boundary of the woven model takes a zigzag-like shape, which brings great
+difficulty in modeling the physical interactions between the 2D pieces that
+will have to be sewed together. </p>
+
+<p class=MsoNormal><span lang=ZH-CN style='font-family:宋体'>&#8226;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+There is no guarantee that all the threads will be in the tensile state, which
+though is strongly required by a compression garment.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=980 height=305
+src="SHIAE08_CCLWang_files/image001.jpg"></p>
+
+<p class=MsoNormal><i>Figure 1</i>. Computing optimal strain values on 3D
+garment pieces whose 2D patterns satisfy certain compression requirements. The color
+map shows the strain distribution on the human body with the suit fabricated
+from the 2D patterns in the right.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><i><img width=445 height=386
+src="SHIAE08_CCLWang_files/image002.jpg"></i></p>
+
+<p class=MsoNormal><i>Figure 2</i>. Application in the geometric design of a
+customized assistive medical brace: (a) the 3D mesh surface of the brace is
+acquired from a scanned human model, and the initial planar pattern is obtained
+by a parameterization algorithm [11]; (b) different planar patterns are
+computed – different colors on the 3D brace represent different strain levels.
+The places pointed by arrows are with large normal pressures
+specified.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Figure 3. The
+geometric design for a wrist brace: (a) the 3D mesh surface of the wrist, the
+initial woven fitting of the wrist, and the corresponding strain distribution
+of the brace; (b) the fitting result without normal pressure constraints; (c)
+the fitting result with normal pressure constraints.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=505 height=328
+src="SHIAE08_CCLWang_files/image003.jpg"></p>
+
+<p class=MsoNormal><i>Figure 3</i>. The geometric design for a wrist brace: (a)
+the 3D mesh surface of the wrist, the initial woven fitting of the wrist, and
+the corresponding strain distribution of the brace; (b) the fitting result
+without normal pressure constraints; (c) the fitting result with normal
+pressure constraints.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>References:</b></p>
+
+<p class=MsoNormal>[1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cyberware Web
+site, 2005. At: http://www.cyberware.com</p>
+
+<p class=MsoNormal>[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TC2 Web site,
+2005. At: http://www.tc2.com</p>
+
+<p class=MsoNormal>[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Terzopoulos,
+D., Platt, J., Barr, A., and Fleischer, K., “Elastically deformable models”.
+ACM SIGGRAPH 87, pp.205-214, 1987.</p>
+
+<p class=MsoNormal>[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Volino, P.,
+Courchesne, M., and Magnenat-Thalmann, N. “Versatile and efficient techniques
+for simulating cloth and other deformable objects”. In Proceedings of ACM
+SIGGRAPH 95, pp.137-144, 1995.</p>
+
+<p class=MsoNormal>[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Baraff, D.,
+and Witkin, A., “Large steps in cloth simulation”. ACM SIGGRAPH 98, pp. 43-54,
+1998.</p>
+
+<p class=MsoNormal>[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choi, K.-J.,
+and Ko, H.-S. “Stable but responsive cloth”. ACM Trans. Graphics, 21(3),
+pp.604-611, 2002.</p>
+
+<p class=MsoNormal>[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Etzmuss, O.,
+Gross, J., and Strasser, W. “Deriving a particle system from continuum
+mechanics for the animation of deformable objects”. IEEE Transactions on
+Visualization and Computer Graphics, 9(4), pp.538-550, 2003.</p>
+
+<p class=MsoNormal>[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Goldenthal,
+R., Harmon, D., Fattal, R., Bercovier, M., and Grinspun, E. “Efficient
+simulation of inextensible cloth”. ACM Trans. Graphics, 26(3), 2007.</p>
+
+<p class=MsoNormal>[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hormann, K.,
+Sheffer, A., Levy, B., Desbrun, M., and Zhou, K. Mesh Parameterization: Theory
+and Practice (SIGGRAPH 2007 Course Notes), ACM, 2007.</p>
+
+<p class=MsoNormal>[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Desbrun, M., Meyer, M.,
+and Alliez, P. “Intrinsic parameterizations of surface meshes”. Computer
+Graphics Forum, 21(3), pp.209-218, 2002.</p>
+
+<p class=MsoNormal>[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levy, B., Petitjean, S.,
+Ray, N., and Maillot, J. “Least squares conformal maps for automatic texture
+atlas generation”. ACM Trans. Graphics, 21(3), pp.362–371, 2002.</p>
+
+<p class=MsoNormal>[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sheffer, A., Levy, B.,
+Mogilnitsky, M., and Bogomjakov, A. “ABF++: fast and robust angle based
+flattening”. ACM Trans. Graphics, 24(2), pp.311-330, 2005.</p>
+
+<p class=MsoNormal>[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Aono, M., Breen, D., and
+Wozny, M. “Modeling methods for the design of 3d broadcloth composite parts”.
+Computer-Aided Design, 33, pp.989-1007, 2001.</p>
+
+<p class=MsoNormal>[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; McCartney, J., Hinds, B.,
+and Seow, B. “The flattening of triangulated surfaces incorporating darts and
+gussets”. Computer-Aided Design, 31, pp.249–260, 1999.</p>
+
+<p class=MsoNormal>[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wang, C., Smith, S., and
+Yuen, M. “Surface flattening based on energy model”. Computer-Aided Design,
+34(11), pp.823-833, 2002.</p>
+
+<p class=MsoNormal>[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wang, C., and Tang, K.
+“Woven model based geometric design of elastic medical braces”. Computer-Aided
+Design, 39(1), pp.69-79, 2007.</p>
+
+<p class=MsoNormal>[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fung, Y.C. Foundations of
+Solid Mechanics. Englewood Cliffs, N.J.: Prentice-Hall, 1965.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

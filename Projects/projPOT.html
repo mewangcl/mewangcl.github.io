@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+ 
+<body TEXT="#ffffff" BGCOLOR="#666666" LINK="#ff9933" VLINK="#ff9933" ALINK="#ff9933">
+
+<table width=800 cellpadding=0 cellspacing=0 align=center><tr>
+<td valign=top><font color="ffffff">
+
+<P>
+<font color="ffffff">
+<B>Point Orientation Tool (POT)</B><BR><BR>
+By: Shengjun Liu and Charlie C.L. Wang<BR><BR>
+Email: shjliu.cg@gmail.com; cwang@mae.cuhk.edu.hk<BR><BR>
+
+<BR><BR>
+1.Copyright<BR><BR>
+- POT is developed by Shengjun Liu for research use. All rights about the program (esp. point orientation) are reserved by Shengjun Liu and Charlie C.L. Wang at the Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong. This C++ source codes are available only to a primary user for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. POT is self-contained and built on top of other source codes (see the copyright terms therein). 
+<BR><BR>
+
+2.Download<BR><BR>
+- The source code (MSVC++ 6.0 project), as well as the testing data, from the link:
+<a href="POT.zip">[Source Code (ZIP file, 4.4MB)]</a><BR><BR>
+
+
+3.Installing & Compiling (Windows+MSVC6.0)<BR><BR>
+- Simply un-pack the rar-zip file to a suitable place and use MSVC6.0 to building the project.<BR><BR>
+
+
+4.Usage<BR><BR>
+- After the compilation you may try the tool PoT which is inside the ./bin directory:
+<BR><BR>
+*Note* The data files should be located in ./bin/data directory.
+<BR><BR>
+- In console mode, the command will be:<BR><BR>
+
+   pot.exe inputfile.obj(.pwn) outputfile.pwn IRC ET ARW IRW SSSW<BR><BR>
+
+- Parameters:<BR><BR>
+
+  inputfile.obj(.pwn): the input file can be an .obj file or a pwn file;<BR><BR>
+
+  outputfile.pwn: the output file should be a pwn file;<BR><BR>
+
+  IRC: (I)f_(R)ecompute_(N)ormal. It is a bool parameter for determining if recomputing points' normals. 1 for recomputing. 0 for not. If 1 is set, an orientation-aware principal component analysis procedure is applied to every point.<BR><BR>
+
+  ET: (E)rror_(T)hreshold. It describes a specified accuracy for generating an approximately minimal set of adaptive spherical covering the points. ET usually is set as 1.0e-5.<BR><BR>
+
+  ARW: (A)verage_(Radius)_(Weight). ARW is a threshold value proposition of the main diagonal length of the bounding box for smoothing scattered point data. Usually, for the typical noisy data produced by modern 3D laser digitizers, we use ARW = 0.01, otherwise ARW = 0.0.<BR><BR>
+
+  IRW: (I)nfluence_(R)adius_(Weight). IRW is a parameter controlling the influence of spherical center. Typically we use IRW = 2.<BR><BR>
+
+  SSSW: (S)phere_(S)plitting_(S)election_(W)eight. SSSW is a threshold for selecting some spheres to split. The spheres splitting will work as setting SSSW>1. The typical value of SSSW is 3.0.<BR><BR>
+
+- Examples:<BR><BR>
+
+  a) Recomputing the points' normals<BR><BR>
+
+  pot.exe inputfile.pwn outputfile.pwn 1 0.00001 0 2 1<BR><BR>
+
+  b) For noisy and non-uniform distributed data<BR><BR>
+
+  pot.exe inputfile.pwn outputfile.pwn 1 0.00001 0.01 2 3<BR><BR>
+
+*Note* If there are some errors in the result, you can try to adjust the values of ET or IRW.<BR><BR>
+
+5.File format<BR><BR>
+
+- obj file: a general wavefront file with input scattered points<BR><BR>
+
+- pwn file: point with normal file (the files in the fold of \bin\data are with normal vectors inconsistently oriented).<BR><BR>
+
+#points (=N)<BR><BR>
+x1 y1 z1<BR><BR>
+x2 y2 z2<BR><BR>
+...<BR><BR>
+xN yN zN<BR><BR>
+nx1 ny1 nz1<BR><BR>
+nx2 ny2 nz2<BR><BR>
+...<BR><BR>
+nxN nyN nzN<BR><BR>
+<BR><BR>
+
+Acknowledgement:<BR><BR>
+We would like to thank Yutaka Ohtake who provide the source code of the integrating approach to meshing scattered point data (http://www.den.rcast.u-tokyo.ac.jp/~yu-ohtake/software/index.html)
+<BR><BR>
+
+</td>
+
+<tr><td colspan=3 align=center> 
+ 
+<P><BR><P><BR> 
+
+</td></tr>
+
+</table>
+
+
+</BODY>
+</HTML>

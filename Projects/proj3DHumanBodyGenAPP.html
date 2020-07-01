@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<link rel="stylesheet" type="text/css" href="defaultpage2.css">
+</HEAD>
+ 
+<body TEXT="#ffffff" BGCOLOR="#666666" LINK="#ff9933" VLINK="#ff9933" ALINK="#ff9933">
+
+<table width=800 cellpadding=0 cellspacing=0 align=center><tr>
+<td valign=top><font color="ffffff">
+
+<P>
+<font color="ffffff">
+
+<table width="810" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="proj3DHumanBodyGenAPP_files/menu.png" height="250" border="0"></td>
+<td width=640 valign=top>
+ 
+<BR><BR>
+<B>3D Human Body Generator</B> (ver. 1.0)<BR><BR>
+Developed By: Ho-Yi Lam (Email: hoyiconnie@yahoo.com.hk)<BR><BR>
+Supervior: Charlie C.L. Wang (Email: cwang@mae.cuhk.edu.hk)<BR><BR>
+
+<a href="3DHBGenAPP.zip">APP Download [21.4MB of APK file in ZIP]</a><BR><BR>
+
+Latest Release: 04/2015<BR><BR>
+<BR>
+</tr>
+</table>
+
+
+
+<BR>
+1. Copyright<BR><br>
+- 3D Human Body Generator is an Android APP developed by Ho-Yi Lam in the final year project of undergraduate study. 
+All rights about this APP are reserved by Charlie C.L. Wang at the Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong. 
+This APP is developed on Unity Free version 4.5.5, which is licensed for any entity with annual gross revenues or budget less than US$100,000 <a href="#ref01">[1]</a>. 
+At this moment, this APP is only delivered to primary users for academic purpose.
+<BR><BR>
+
+
+<BR>
+2. Background<BR><BR>
+- Human body generator is a parametric design tool that can generate human model with a serial of parameters (height, shoulder width, hip girth, etc.). 
+The generation of model is based on a database with a collection of scanned human 3D models. User can customize a human model by changing the parameters.<BR><BR>
+
+- The parametric tool is based on a database of realistic human bodies which are reconstructed from 3D point clouds captured by laser scanners <a href="#ref02">[2]</a> <a href="#ref03">[3]</a>. 
+After applying the cross-parameterization technique <a href="#ref04">[4]</a> <a href="#ref05">[5]</a> to generate mesh surfaces with consistent connectivity, 
+3D models of human body can be analyzed and process by a statistical method <a href="#ref06">[6]</a>.<BR><BR>
+
+
+<BR>
+3. Download & Installation<BR><BR>
+- 3D Human Body Generator Android app can be downloaded from this link: <a href="3DHBGenAPP.apk">APP Download [21.4MB]</a>.<BR><BR>
+
+- Download the .apk file into an Android device and install it.<BR><BR>
+
+
+
+<BR>
+4. Functions<BR><BR>
+
+This Android APP is a parametric design tool for generating human body 3D model. 
+Users can start to make a new model by "New Male Model" or "New Female Model" on menu. 
+The new human 3D model can be exported as an .obj file by the "Export New Model" item. 
+The file will be saved in the external storage of the mobile device. 
+Obj file can be loaded by "Load File" on menu. Enter the full path of the obj file to open.<BR><BR>
+
+
+<U><I>Parametric Design Tool</I></U><BR><BR>
+
+<img src="proj3DHumanBodyGenAPP_files/paraDesignTool.png" width="480" border="0"><BR>
+This is the UI of the parametric design tool. Control the sliders in the parameter dialog to change the value of the parameters which include bust, under bust, waist, hip, neck girth, body height, inside leg and shoulder. When dragging the slider, the model will deform according to the value and the dimension dialog will show the new value instantaneously. 
+
+Assistive tools include:<BR>
+- Undo<BR>
+- Change viewing angle from high to low<BR>
+- Hide/show parameter dialog<BR>
+- Real-time display parameter value<BR>
+- Moveable dimension dialog<BR>
+<BR>
+
+<U><I>Input Values with Camera</I></U><BR><BR>
+
+<img src="proj3DHumanBodyGenAPP_files/camera.png" width="480" border="0"><BR>
+
+Enter this function by "Read by photo" at the bottom of the parameter dialog. This function is to help user to measure the parameter value from photo. To use the function, user need to take a photo of a person with the parameters for the new human model. The photo should capture the whole body at the fount side of the person. Then follow these three steps to measure the values:<BR>
+- Step 1: Enter body height (in cm)<BR>
+- Step 2: Mark body height in photo (Drag the white lines)<BR>
+- Step 3: Mark other body parts (Drag the white lines)<BR>
+
+<BR>
+
+
+
+<BR>
+5. Problems<BR><BR>
+- The exported obj file does not contain new lines, so there is some problem with the file format. 
+This problem is mainly caused by the environment difference between Android and Unity Editor.<BR><BR>
+
+- The exported obj file does not show when the device connect with PC using MTP. It is a known bug in Android <a href="#ref07">[7]</a>. 
+A solution is to reboot the device or to browse the file using the file manager in android and send it to computer.<BR><BR>
+
+- The accuracy of values obtained from "Input parameters with camera" function has not been clarified. 
+The error is mainly cause by the translation from projection values to the 3D value.<BR><BR> 
+
+
+
+<BR><BR>
+References:<BR><BR>
+<a name="ref01"></a>
+[1] Unity Technologies, "<a href="http://unity3d.com/legal/eula" target="new">Unity - Unity Pro and Unity Personal Software License Agreement 4.x</a>", 2014.<BR><BR>
+
+<a name="ref02"></a>
+[2] Shengjun Liu, and <B>Charlie C.L. Wang</B>, 
+"<a href="http://dx.doi.org/10.1016/j.cag.2010.03.003" target="new">Orienting unorganized points for surface reconstruction</a>", 
+Computers & Graphics, Special Issue of IEEE International Conference on Shape Modeling and Applications (SMI 2010), vol.34, no.3, pp.209-218, Arts et Metiers ParisTech, Aix-en-Provence, France, June 21-23, 2010. 
+<a href="pubs/SMI10PntOrienting.pdf" target="new">[PDF]</a> <a href="projPOT.html">[Project Page - with Source Code]</a><BR><BR>
+
+<a name="ref03"></a>
+[3] Shengjun Liu, and <B>Charlie C.L. Wang</B>, "<a href="http://dx.doi.org/10.1016/j.cagd.2012.03.011" target="new">Quasi-interpolation for surface reconstruction from scattered data with radial basis function</a>", Computer Aided Geometric Design, Special Issue of 2012 Geometric Modeling and Processing (GMP) conference, June 20-22, 2012, Mount Huang, vol.29, no.7, pp.435-447, October 2012. <a href="pubs/GMPQuasiInterRecon.pdf" target="new">[PDF]</a>.<BR><BR>
+
+<a name="ref04"></a>
+[4] Tsz-Ho Kwok, Yunbo Zhang, and <B>Charlie C.L. Wang</B>, "<a href="http://dx.doi.org/10.1109/TVCG.2011.115" target="new">Efficient optimization of common base domains for cross-parameterization</a>", IEEE Transactions on Visualization and Computer Graphics, vol.18, no.10, pp.1678-1692, October 2012.<a href="pubs/TVCGCrossPara.pdf" target="new">[PDF]</a> <a href="https://sites.google.com/site/kwoktszho2009/research/surface-cross-parameterization" target="new">[Project Page - with Program]</a>.<BR><BR>
+
+<a name="ref05"></a>
+[5] Tsz-Ho Kwok, Yunbo Zhang, and <B>Charlie C.L. Wang</B>, 
+"<a href="http://dx.doi.org/10.1016/j.gmod.2012.03.012" target="new">Constructing common base domains by cues from Voronoi diagram</a>", Graphical Models, Special Issue of 2012 Geometric Modeling and Processing (GMP) conference, June 20-22, 2012, Mount Huang, vol.74, no.4, pp.152-163, July 2012. <a href="pubs/GMPCrossParaVD.pdf" target="new">[PDF]</a><BR><BR>
+
+<a name="ref06"></a>
+[6] Chih-Hsing Chu, Ya-Tien Tsai, <B>Charlie C.L. Wang</B>, and Tsz-Ho Kwok, 
+"<a href="http://dx.doi.org/10.1016/j.compind.2010.03.004" target="new">Exemplar-based statistical model for semantic parametric design of human body</a>", 
+Computers in Industry, vol.61, no.6, pp.541-549, August 2010. <a href="pubs/CiIHuman.pdf" target="new">[PDF]</a>.<BR><BR>
+
+<a name="ref07"></a>
+[7] "<a href="https://code.google.com/p/android/issues/detail?id=38282" target="new">Issue 38282: Android MTP support does not show recent files until the device is rebooted</a>", 2012.<BR><BR>
+
+</td>
+
+<tr><td colspan=3 align=center> 
+ 
+<P><BR><P><BR> 
+
+</td></tr>
+
+</table>
+
+
+</BODY>
+</HTML>

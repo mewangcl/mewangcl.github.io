@@ -1,0 +1,133 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Extended G-Code for Multi-Axis 3D Printing</title>
+</head>
+
+<body>
+
+<center><h1>Extended G-Code Format for Multi-Axis 3D Printing</h1></center>
+<font size="1" face="Verdana">
+<center>
+<h1>
+<a href="https://github.com/daichengkai/">Chengkai Dai</a>, <a href="http://www.mae.cuhk.edu.hk/~cwang/">Charlie C.L. Wang</a>
+</h1></center></font>
+<center>
+<a href="#INTRODUCTION">Introduction</a> 
+<a href="#GCODE">G-Code</a> 
+<a href="#EXTENDED_GCODE">Extension</a> 
+<a href="#EXAMPLES">Examples</a> 
+</center>
+
+<hr>
+
+<a name="INTRODUCTION">
+<h2>Introduction</h2>
+
+
+</a>
+This page contains the description of an extended G-code file format for defining the tool-paths that can realize the multi-axis 3D printing. An example of this spatial material accumulation can be found in our prior research paper [1], which introduced a framework to fabricate a volume by 3D printing in a support-free way. The implementation can be found in our curved-layer slicer <a href="https://github.com/daichengkai/VoxelMultiAxisAM">VoxelMultiAxisAM</a>, which imports a watertight 3D model, decomposes it into curved layers in a support-free and collision-free manner, and outputs the extended G-code files for realizing the mutli-axis 3D printing. Detail format specification and example G-code files can be found below.
+<br><br>
+
+<b>Reference:</b><br>
+[1] Chengkai Dai, Charlie C.L. Wang, Chenming Wu, Sylvain Lefebvre, Guoxin Fang, and Yongjin Liu, "<a href="https://doi.org/10.1145/3197517.3201342">Support-free volume printing by multi-axis motion</a>", ACM Transactions on Graphics (SIGGRAPH 2018), vol.37, no.4, article no.134 (13 pages), July 2018. [<a href="http://www.mae.cuhk.edu.hk/~cwang/pubs/SIG18RobotVolPrint.pdf">PDF</a>]<br>
+<hr>
+
+
+<a name="GCODE">
+<h2>G-Code for Planar 3D Printing</h2>
+
+
+</a>
+The G-code file for supporting multi-axis 3D printing is extended from the original RepRap G-code that has been widely used in 3D printing community. Here we only review the most commonly used G-commands in RepRap G-code for conventional planar-layered 3D printing. <br><br>
+
+<b>Example Code:</b><br>
+<textarea rows="6" cols="100">
+G92 E0
+G28
+G0 F600 X4.391 Y-8.398 Z1.500 
+G1 X3.650 Y-9.611 Z1.500 E1.026
+... ...
+</textarea>
+
+<br><br>
+The meaning of each command line is as follows.
+<LI>G92 E0: Reset extruder distance position.
+<LI>G28: Move to the home position.
+<LI>G0 is a command for rapid movement, where F600 specifies the speed as 600 (mm / min.) for the nozzle movement to the followed positions specified by Xnnn, Ynnn and Znnn (unit: mm). 
+<LI>G1 stands for a linear movement to the specified position, where Ennn gives the amount of material to extrude between the starting point and ending point (e.g., 1.026mm of material will be extruded by the above code).
+
+<br><br>
+For the detailed explanation for all different commands and parameters, please refer to <a href="https://reprap.org/wiki/G-code#M117:_Get_Zero_Position">RepRap G-Code</a>.
+<hr>
+
+
+<a name="EXTENDED_GCODE">
+<h2>Extended G-code File Format</h2>
+
+
+</a>
+When fabricating a solid model by multi-axis 3D printing, we need to specify not only the position but also the orientation of nozzle in the Euclidean coordinate system. In our extension, we define the orientation of nozzles by the nXnnn, nYnnn and nZnnn flags. One example line of command with nozzle orientation is shown below.
+<br><br>
+
+<b>Example Code:</b><br>
+<textarea rows="4" cols="100">
+... ...
+G1 X6.338 Y8.390 Z46.300 nX-0.094 nY0.127 nZ0.987 E4.324
+... ...
+</textarea>
+<br><br>
+nX-0.094 nY0.127 nZ0.987 define the vector (-0.094, 0.127, 0.987) as the orientation of 3D printer head (in the coordinate system of workpiece). All other flags of the RepRap G-code format are used in the same way.
+<hr>
+
+
+<a name="EXAMPLES">
+<h2>Examples of Toolpaths</h2>
+
+
+</a>
+Here we give 5 example G-code files for the toolpaths to print the models used in [1]. All are compressed in ZIP files. <br><br>
+
+<table border="1">
+<tr>
+<td><b>Armadilo</b></td>	
+<td>
+<b>Bunny</b>
+
+</td>
+<td>
+<b>Candelabra</b>
+
+</td>
+<td>
+<b>Woman-Pully</b>
+
+</td>
+<td>
+<b>Mech-Part</b>
+
+</td>
+</tr>
+
+<tr>
+<td><img src="gcodePath/armadillo.jpg" height="200" border="0"></td>	
+<td><img src="gcodePath/bunny.jpg" height="200" border="0"></td>
+<td><img src="gcodePath/candelabra.jpg" height="200" border="0"></td>
+<td><img src="gcodePath/woman.jpg" height="200" border="0"></td>
+<td><img src="gcodePath/bar.jpg" height="200" border="0"></td>
+</tr>
+
+<tr>
+<td><a href="gcodePath/Armadillo.zip">Armadillo.zip</a> (41.6MB)</td>
+<td><a href="gcodePath/Bunny.zip">Bunny.zip</a> (5.3MB)</td>
+<td><a href="gcodePath/Candelabra.zip">Candelabra.zip</a> (10.3MB)</td>
+<td><a href="gcodePath/Woman.zip">Woman.zip</a> (1.7MB)</td>
+<td><a href="gcodePath/Mech-Part.zip">Mech-Part.zip</a> (1.6MB)</td>
+</tr>
+</table>
+
+<br><br>
+<a href="http://www.mae.cuhk.edu.hk/~cwang/">Home</a>
+
+
+
+</body></html>

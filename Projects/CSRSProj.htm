@@ -1,0 +1,421 @@
+﻿
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>CSRS: A Library for Coherent Spherical Range-Search on GPUs</title>
+
+</head>
+
+<body>
+
+<center><h1>CSRS: A Library for Coherent Spherical Range-Search on GPUs</h1></center>
+<font size="1" face="Verdana">
+<center><h1>
+<a href="http://www2.mae.cuhk.edu.hk/~lpxing">Lianping Xing</a>, 
+<a href="http://www2.mae.cuhk.edu.hk/~cwang">Charlie C.L. Wang</a> and 
+<a href="http://www2.mae.cuhk.edu.hk/~kchui">Kin-Chuen Hui</a>
+</h1></center></font>
+
+<center>
+
+
+<a href="#WHATISCSRS">what is CSRS?</a> <a href="#COPYRIGHT">copyright</a> <a href="#SOURCECODE">source code</a> 
+<a href="#EXAMPLEOFUSAGE01">example 1</a> <a href="#EXAMPLEOFUSAGE02">example 2</a> <a href="#EXAMPLEOFUSAGE03">example 3</a>
+</center>
+
+<hr>
+
+
+<center><iframe width="533" height="300" src="https://www.youtube.com/embed/LTMe5je9beE" allowfullscreen></iframe></center>
+<hr>
+<a name="WHATISCSRS">
+<b>What is CSRS?</b></a><br>
+
+CSRS is a library written in C++, which supports algorithms for exact spherical range-search in arbitrarily dimensions.<br> 
+<br>
+Range-search with a radius <i>r</i> for a query <i>q</i> on a set of data points <b>P</b> is an operation to find all the neighbors <i>p</i> the 
+distances from which to <i>q</i> are not larger than <i>r</i>. As the range of search is a d-dimensional sphere, this is called spherical range-search <b>(SRS)</b>.<br>
+
+<br>
+
+Different from finding <i>k</i> approximate nearest neighbors (ANNs), exact SRS is needed in geometry processing and physical 
+simulation to avoid missing small features. With the help of a balanced AABB-tree, the spatial coherence of query points
+ and the temporal coherence of dynamic points are exploited to achieve very efficient range-search and hierarchical update.<br>
+<br>
+The library also comes with test programs for measuring the quality of performance of CSRS on any particular data sets. Our library provides the implementation of method presented in the following paper.
+
+<br><br>
+<b>Reference:</b><br>
+
+[1] Lianping Xing, <B>Charlie C.L. Wang</B>, and Kin-Chuen Hui, 
+"<a href="http://dx.doi.org/10.1016/j.cad.2017.01.002" target="new">Coherent spherical range-search for dynamic points on GPUs</a>", 
+Computer-Aided Design, 2017.
+
+<hr>
+
+<a name="COPYRIGHT"><b>COPYRIGHT</b></a><br>
+
+All rights about the program are reserved by Lianping Xing, Charlie C.L. Wang and Kin-Chuen Hui 
+at the Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong. In no event shall 
+
+the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising 
+
+out of the use of this program.
+
+
+<hr>
+
+<a name="SOURCECODE"><b>SOURCE CODE</b></a><br>
+
+This program is developed based on nVIDIA CUDA GPUs with compute capability larger than 2.0.<br>
+<br>
+
+The current version of CSRS can be downloaded here.
+<dt><li>CSRS Version 0.5: <a href="CSRS_0.5.zip">CSRS_0.5.zip</a> (Date: July 10, 2015)</li></dt><br>
+Notes:
+<dt><li>For different dimension executions, <b>"#define CSRS_PNT_DIM"</b> (the current setting is for dimension 3) at the top of the header file 
+- <b>"SRStree.h"</b> should be changed accordingly.
+</li>
+</dt>
+
+<hr><a name="EXAMPLEOFUSAGE01"><b>Example of General Search</b></a><br>
+
+<textarea rows="80" cols="210">
+#include <cuda_runtime.h>
+
+#include "SRStree.h"
+#include "SRStree_CPU.h"
+#include "SRStree_GPU.h"
+
+int main(int argc, char** argv)
+{
+    int    ref_nb     = 100000;			// Data point number
+    int    query_nb   = 100000;			// Query point number
+    const int	dim   = CSRS_PNT_DIM;		// Dimension of points
+    int bucket_size   = 20;
+    int iterations    = 200;
+
+    //--------------------------------------------------------------------------------------
+    //	Generate data sets
+    srand((unsigned int)(time(NULL)));
+    //--------------------------------------------------------------------------------------
+    float *pos=(float*)malloc(sizeof(float)*ref_nb*dim);	//	Data points
+    float *query=(float*)malloc(sizeof(float)*query_nb*dim);	//	Query points
+    for (int i=0; i<ref_nb; i++) {for(int j=0; j<dim; j++) {pos[dim*i+j] = ((float)rand()/(float)RAND_MAX)*2.0f-1.0f;}}
+    for (int k=0; k<query_nb; k++) {for(int j=0; j<dim; j++) {query[dim*k+j] = ((float)rand()/(float)RAND_MAX)*2.0f-1.0f;}}
+
+    //--------------------------------------------------------------------------------------
+    //	Calculate bbx and set query radius - r
+    float *bnds_lo=new float[dim];
+    float *bnds_hi=new float[dim];
+    for (int d = 0; d < dim; d++) {		// find smallest enclosing rectangle
+	float lo_bnd = pos[dim*0+d];		// lower bound on dimension d
+	float hi_bnd = pos[dim*0+d];;		// upper bound on dimension d
+	for (int j = 0; j < ref_nb; j++) {
+	    if (pos[dim*j+d] < lo_bnd) lo_bnd = pos[dim*j+d];
+	    else if (pos[dim*j+d] > hi_bnd) hi_bnd = pos[dim*j+d];
+	}
+	bnds_lo[d] = lo_bnd;	bnds_hi[d] = hi_bnd;
+    }
+    float sum = 0.0;
+    for (int d = 0; d < dim; d++) {
+	sum += (bnds_hi[d]-bnds_lo[d])*(bnds_hi[d]-bnds_lo[d]);
+    }
+    float bbxDiagonalLength = sqrt(sum);
+    float query_radius = 0.01f * bbxDiagonalLength;
+    printf("BBX-DiagonalL=%.6f   Query-Radius=%.6f\n",bbxDiagonalLength,query_radius);
+
+    //--------------------------------------------------------------------------------------
+    //	Create tree structure in CPU and transfer it to GPU	
+    SRStree *the_tree = new SRStree(pos,ref_nb,dim,bucket_size);
+    SRStree_CPU *the_tree_cpu=new SRStree_CPU;
+    the_tree_cpu->Reconstruct(the_tree);//reorganize nodes of the tree
+    SRStree_GPU *the_tree_gpu=new SRStree_GPU;
+    the_tree_gpu->Construct(the_tree_cpu,the_tree_cpu->GetNumNodes(),pos,ref_nb);	// transfer tree onto GPU
+    //--------------------------------------------------------------------------------------
+    //	Well align the tree nodes
+    the_tree_gpu->SortNodes();
+    //--------------------------------------------------------------------------------------
+    //	Tight fit the bounding boxes
+    the_tree_gpu->RefitAABB();
+
+    //--------------------------------------------------------------------------------------
+    //	Allocate memory for query points and output results 
+    int maxNeighborNum = 350;	//	for specifying the maximally returned number of neighbors in SRS
+				//	When the resultant number of neighbors is greater than this number,
+				//		our program will randomly pick this number of neighbors to report as results.
+    //--------------------------------------------------------------------------------------
+    float *gpu_queries;		//	for query points
+    cudaMalloc((void**)&gpu_queries, sizeof(float)*query_nb*dim);
+    cudaMemcpy(gpu_queries,query,sizeof(float)*query_nb*dim,cudaMemcpyHostToDevice);
+    //--------------------------------------------------------------------------------------
+    int *gpu_ret_indexes;	//	for returning indices of resultant points -- index starting from zero
+    float *gpu_ret_dist;   	//	for returning the squared distances of every neighbor
+    int *gpu_neigh;		//	for returning the numbers of neighbors for each query point
+    cudaMalloc((void**)&gpu_ret_indexes, sizeof(int)*query_nb*maxNeighborNum);
+    cudaMalloc((void**)&gpu_ret_dist, sizeof(float)*query_nb*maxNeighborNum);
+    cudaMalloc((void**)&gpu_neigh, sizeof(int)*query_nb);
+    cudaMemset(gpu_ret_indexes, 0xffffffff, query_nb*maxNeighborNum*sizeof(int));
+    cudaMemset(gpu_neigh, 0xffffffff, query_nb*sizeof(int));
+
+    //--------------------------------------------------------------------------------------
+    //	Copy query points onto GPU
+    cudaMemcpy(gpu_queries,query,sizeof(float)*query_nb*dim,cudaMemcpyHostToDevice);
+
+    long time=clock();
+    printf("Computation is started ... ...\n");
+    //--------------------------------------------------------------------------------------
+    //	Randomly move points and conduct the queries of SRS
+    bool bRes;
+    for(int i = 0; i < iterations; i++)	{
+	printf("Iteration: %d \n",i);
+	bRes = the_tree_gpu->Search(gpu_queries,query_nb,query_radius,maxNeighborNum,gpu_ret_indexes,gpu_ret_dist,gpu_neigh);
+	if (!bRes) {printf("Running out of memory!\n");break;}
+		
+	if (i==(iterations-1)) break;
+
+	//----------------------------------------------------------------------------------
+	//	Randomly update the positions of data points
+	for(int ii = 0; ii < query_nb; ii++) {
+		for(int kk = 0; kk < dim; kk++)	{
+			float dist = 5.0f*((((float)rand() / (float)RAND_MAX)*2-1)/1000.0f);
+			pos[dim*ii+kk] += dist;
+		}
+	}
+	//----------------------------------------------------------------------------------
+	the_tree_gpu->SetDataPoints(pos,ref_nb);	// Assigning new positions of data points (copying from CPU to GPU)
+	the_tree_gpu->RefitAABB();			// Updating AABBs of the tree
+
+	if (the_tree_gpu->isRebuildNeeded()) {
+		printf("**********************************************\n");
+		printf("Tree Re-building is activated!\n");
+		printf("**********************************************\n");
+		float *devPos=the_tree_gpu->GetDataPoints();				// This is an optional step, which is only needed when the data points
+		cudaMemcpy(pos,devPos,sizeof(float)*ref_nb*dim,cudaMemcpyDeviceToHost);	//	are updated inside GPU - e.g., GPU-based particle simulation.
+
+		//------------------------------------------------------------------------------
+		delete the_tree_gpu;	delete the_tree_cpu;	delete the_tree;
+
+		the_tree = new SRStree(pos,ref_nb,dim,bucket_size);
+		the_tree_cpu=new SRStree_CPU;
+		the_tree_cpu->Reconstruct(the_tree);
+		the_tree_gpu=new SRStree_GPU;
+		the_tree_gpu->Construct(the_tree_cpu,the_tree_cpu->GetNumNodes(),pos,ref_nb);
+		the_tree_gpu->SortNodes();
+		the_tree_gpu->RefitAABB();
+	}
+    }
+    Printf("Computation is completed (in %ld ms)!\n",clock()-time);
+    
+    //--------------------------------------------------------------------------------------
+    //	Output results to files
+
+    ... ...
+
+    //  Finished!!!
+    
+    //--------------------------------------------------------------------------------------
+    //	Free GPU memory
+    cudaFree(gpu_queries);
+    cudaFree(gpu_ret_indexes);
+    cudaFree(gpu_ret_dist);
+    cudaFree(gpu_neigh);
+    //--------------------------------------------------------------------------------------
+    //	Free CPU memory
+    free(pos);	free(query);	
+    //--------------------------------------------------------------------------------------
+    //	Free memeory of trees
+    delete the_tree;    delete the_tree_cpu;	delete the_tree_gpu;
+}
+</textarea>
+
+
+<hr><a name="EXAMPLEOFUSAGE02"><b>Example of Searching by Data Points</b> (This is about 30% faster than the general search.)</a><br>
+
+<textarea rows="80" cols="210">
+#include <cuda_runtime.h>
+
+#include "SRStree.h"
+#include "SRStree_CPU.h"
+#include "SRStree_GPU.h"
+
+
+int main(int argc, char** argv)
+{
+    int    ref_nb     = 100000;			// Data point number
+    int    query_nb   = 100000;			// Query point number
+    const int	dim   = CSRS_PNT_DIM;		// Dimension of points
+    int bucket_size   = 20;
+    int iterations    = 200;
+
+    //--------------------------------------------------------------------------------------
+    //	Generate data sets
+    srand((unsigned int)(time(NULL)));
+    //--------------------------------------------------------------------------------------
+    float *pos=(float*)malloc(sizeof(float)*ref_nb*dim);	//	Data points
+    for (int i=0; i<ref_nb; i++) {for(int j=0; j<dim; j++) {pos[dim*i+j] = ((float)rand()/(float)RAND_MAX)*2.0f-1.0f;}}
+
+    //--------------------------------------------------------------------------------------
+    //	Calculate bbx and set query radius - r
+    ... ... (the same as above example)
+
+    //--------------------------------------------------------------------------------------
+    //	Create tree structure in CPU and transfer it to GPU	
+    ... ... (the same as above example)
+
+    //--------------------------------------------------------------------------------------
+    //	Allocate memory for query points and output results 
+    int maxNeighborNum = 350;	//	for specifying the maximally returned number of neighbors in SRS
+				//	When the resultant number of neighbors is greater than this number,
+				//		our program will randomly pick this number of neighbors to report as results.
+    //--------------------------------------------------------------------------------------
+    int *gpu_ret_indexes;	//	for returning indices of resultant points -- index starting from zero
+    float *gpu_ret_dist;    	//	for returning the squared distances of every neighbor
+    int *gpu_neigh;		//	for returning the numbers of neighbors for each query point
+    cudaMalloc((void**)&gpu_ret_indexes, sizeof(int)*query_nb*maxNeighborNum);
+    cudaMalloc((void**)&gpu_ret_dist, sizeof(float)*query_nb*maxNeighborNum);
+    cudaMalloc((void**)&gpu_neigh, sizeof(int)*query_nb);
+    cudaMemset(gpu_ret_indexes, 0xffffffff, query_nb*maxNeighborNum*sizeof(int));
+    cudaMemset(gpu_neigh, 0xffffffff, query_nb*sizeof(int));
+
+    //--------------------------------------------------------------------------------------
+    //	Copy query points onto GPU
+    cudaMemcpy(gpu_queries,query,sizeof(float)*query_nb*dim,cudaMemcpyHostToDevice);
+
+    long time=clock();
+    printf("Computation is started ... ...\n");
+    //--------------------------------------------------------------------------------------
+    //	Randomly move points and conduct the queries of SRS
+    bool bRes;
+    for(int i = 0; i < iterations; i++)	{
+	printf("Iteration: %d \n",i);
+	bRes = the_tree_gpu->SearchByDataPoints(query_radius,maxNeighborNum,gpu_ret_indexes,gpu_ret_dist,gpu_neigh);
+	if (!bRes) {printf("Running out of memory!\n");break;}
+		
+	if (i==(iterations-1)) break;
+
+	//----------------------------------------------------------------------------------
+	//	Randomly update the positions of data points
+	... ... (the same as above example)
+
+	if (the_tree_gpu->isRebuildNeeded()) {
+		... ... (the same as above example)
+	}
+    }
+    Printf("Computation is completed (in %ld ms)!\n",clock()-time);
+    
+    //--------------------------------------------------------------------------------------
+    //	Output results to files
+    ... ... (the same as above example)
+    //  Finished!!!
+    
+    //--------------------------------------------------------------------------------------
+    //	Free GPU memory
+    ... ... (the same as above example)
+
+}
+</textarea>
+
+
+<hr><a name="EXAMPLEOFUSAGE03"><b>Example of Searching Nearest Neighbors</b> (This is much faster than the general spherical range search.)</a><br>
+
+<textarea rows="80" cols="210">
+#include <cuda_runtime.h>
+
+#include "SRStree.h"
+#include "SRStree_CPU.h"
+#include "SRStree_GPU.h"
+
+
+
+int main(int argc, char** argv)
+{
+    int    ref_nb     = 100000;			// Data point number
+    int    query_nb   = 100000;			// Query point number
+    const int	dim   = CSRS_PNT_DIM;		// Dimension of points
+    int bucket_size   = 20;
+    int iterations    = 200;
+
+    //--------------------------------------------------------------------------------------
+    //	Generate data sets
+    srand((unsigned int)(time(NULL)));
+    //--------------------------------------------------------------------------------------
+    float *pos=(float*)malloc(sizeof(float)*ref_nb*dim);	//	Data points
+    for (int i=0; i<ref_nb; i++) {for(int j=0; j<dim; j++) {pos[dim*i+j] = ((float)rand()/(float)RAND_MAX)*2.0f-1.0f;}}
+
+    //--------------------------------------------------------------------------------------
+    //	Calculate bbx and set query radius - r
+    ... ... (the same as above example)
+
+    //--------------------------------------------------------------------------------------
+    //	Create tree structure in CPU and transfer it to GPU	
+    ... ... (the same as above example)
+
+    //--------------------------------------------------------------------------------------
+    //	Allocate memory for query points and output results 
+    int maxNeighborNum = 1;		//	for specifying the maximally returned number of neighbors in SRS
+					//	When the resultant number of neighbors is greater than this number,
+					//		our program will randomly pick this number of neighbors to report as results.
+					//	If maxNeighborNum=1, NN is conducted.
+    //--------------------------------------------------------------------------------------
+    float *gpu_queries;			//	for query points
+    cudaMalloc((void**)&gpu_queries, sizeof(float)*query_nb*dim);
+    cudaMemcpy(gpu_queries,query,sizeof(float)*query_nb*dim,cudaMemcpyHostToDevice);
+    //--------------------------------------------------------------------------------------
+    int *gpu_ret_indexes;	//	for returning indices of resultant points -- index starting from zero
+    float *gpu_ret_dist;    	//	for returning the squared distances of every neighbor
+    int *gpu_neigh;		//	for returning the numbers of neighbors for each query point
+    cudaMalloc((void**)&gpu_ret_indexes, sizeof(int)*query_nb*maxNeighborNum);
+    cudaMalloc((void**)&gpu_ret_dist, sizeof(float)*query_nb*maxNeighborNum);
+    cudaMalloc((void**)&gpu_neigh, sizeof(int)*query_nb);
+    cudaMemset(gpu_ret_indexes, 0xffffffff, query_nb*maxNeighborNum*sizeof(int));
+    cudaMemset(gpu_neigh, 0xffffffff, query_nb*sizeof(int));
+
+    //--------------------------------------------------------------------------------------
+    //	Copy query points onto GPU
+    cudaMemcpy(gpu_queries,query,sizeof(float)*query_nb*dim,cudaMemcpyHostToDevice);
+
+    long time=clock();
+    printf("Computation is started ... ...\n");
+    //--------------------------------------------------------------------------------------
+    //	Randomly move points and conduct the queries of SRS
+    bool bRes;
+    for(int i = 0; i < iterations; i++)	{
+	printf("Iteration: %d \n",i);
+	bRes = the_tree_gpu->SearchNN(gpu_queries,query_nb,query_radius,gpu_ret_indexes,gpu_ret_dist);
+	if (!bRes) {printf("Running out of memory!\n");break;}
+		
+	if (i==(iterations-1)) break;
+
+	//----------------------------------------------------------------------------------
+	//	Randomly update the positions of data points
+	... ... (the same as above example)
+
+	if (the_tree_gpu->isRebuildNeeded()) {
+		... ... (the same as above example)
+	}
+    }
+    Printf("Computation is completed (in %ld ms)!\n",clock()-time);
+    
+    //--------------------------------------------------------------------------------------
+    //	Output results to files
+
+    ... ... 
+
+    //  Finished!!!
+    
+    //--------------------------------------------------------------------------------------
+    //	Free GPU memory
+    ... ... (the same as above example)
+
+}
+</textarea>
+
+<hr>
+
+<a href="http://www2.mae.cuhk.edu.hk/~cwang">HOME</a>
+
+
+
+
+</body></html> 

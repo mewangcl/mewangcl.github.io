@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+ 
+<body TEXT="#ffffff" BGCOLOR="#666666" LINK="#ff9933" VLINK="#ff9933" ALINK="#ff9933">
+
+<table width=800 cellpadding=0 cellspacing=0 align=center><tr>
+<td valign=top><font color="ffffff">
+
+<P>
+<font color="ffffff">
+<B>MeshWorks</B> (ver. 1.0)<BR><BR>
+By: Charlie C. L. Wang<BR><BR>
+Email: cwang@mae.cuhk.edu.hk<BR><BR>
+Latest Release: 2013<BR><BR>
+
+<BR><BR>
+1. Copyright<BR><br>
+- MeshWorks is developed by Charlie C. L. Wang for research use. All rights about the program are reserved by Charlie C.L. Wang at the Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong. This executable program (written in C++ and OpenGL) is available only to a primary user for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. MeshWorks is self-contained and built on top of other libraries (including <a href="http://gamma.cs.unc.edu/SSV/">PQP Library</a> and <a href="http://gmplib.org/">GNU Multiple Precision Arithmetic Library</a>). 
+<BR><BR>
+
+<BR>
+2. Download & Installation<BR><BR>
+- The executable program, as well as the testing data, can be downloaded from the link:
+<a href="MeshWorks.rar">[Executable Program (RAR file, 0.9MB)]</a>.<BR><BR>
+
+- Simply un-pack the RAR file to a suitable place and double-click the 'MeshWorks.exe' file (in the './MeshWorks' directory) to run the program.<BR><br>
+
+- The data files should be located in the './MeshWorks/Data' directory.<BR><BR>
+
+
+
+
+<BR>
+3. General Functions<BR><BR>
+
+- The menus can be listed by the right-click of the mouse.<BR><br>
+
+- The files can be loaded by the 'Open' menu, and can be saved by the 'Save' menu. Supported file formats include: *.obj for polygonal meshes and *.bpt for BSP solids. The model of a polygonal mesh can be enforced to be saved into a triangular mesh by selecting the menu: 'Mesh -> Export Trgl-Mesh'.<br><BR>
+
+- The viewing functions are listed under the sub-menu of 'View'. The tool of 'Orbit-and-Pan' is activated for orbit by left-click and is activated for pan by shift-key plus left-click.<BR><br>
+
+
+
+<BR>
+4. Specific Functions<BR><br>
+- <I>Approximate Boolean</I> operation based on LDI sampling and partial mesh reconstruction (ref. <a href="#ref01">[1]</a>): <BR>
+After importing two mesh models (e.g., Chair.obj and O.obj in the './MeshWorks/Data' directory), you can select the menu: 'Mesh -> Mesh Approximate-Boolean' to conduct union, intersection and subtraction operations of the models. 
+Noted that, for a model with relative coarse mesh, the menu: 'Mesh -> Mesh Refinement' can be used to refine the triangles. 
+The approximate Boolean operations can generate results with less error on models with dense meshes.<BR><BR>
+
+- <I>Mesh repair</I> based on BSP solid representation and BSP-to-BRep boundary extraction (ref. <a href="#ref02">[2]</a>): <br>
+If the mesh to be repaired has holes (where boundary curves will be displayed in bold - e.g., OilRig.obj), the function - 'Mesh -> Mesh Hole-filling' will first be used to fill the holes. 
+After that, 'BSP-solid -> BSP-Solid Based Mesh Repair' will provide a one-stop solution for generating a valid mesh model. 
+Or, you can first select 'BSP-solid -> Generating BSP-Solid from Mesh (With Repair)' to generate a repaired BSP solid. Applying 'BSP-solid -> Surface Generation (Approximate and Parallel)' on the BSP solid will generate a mesh model by the method presented in <a href="#ref02">[2]</a>.<BR><BR>
+
+- <I>Mesh thickening</I> for solid fabrication of freeform surfaces (ref. <a href="#ref03">[3]</a>): <br>
+Importing an open mesh (e.g., Helmet.obj), you can generate a solid by the mesh. The thickness of the solid can be specified. 
+Note that, when a negative thickness is input, the solid will be generated along the surface normal direction; otherwise, the solid will be generated inward.
+The solid can be reconstructed in different resolutions - using a high resolution (e.g., 256), a dense mesh will be generated for the solid.<BR><BR>
+
+
+<BR>
+5. About Error: the application has failed to start because its side by side configuration is incorrect
+<BR><BR>
+You can meet this error when running this program on a machine without VS2005 redistributions. More details on 
+redistributing Visual C++ files can be found at this link: <a href="http://msdn.microsoft.com/en-us/library/ms235299%28VS.80%29.aspx" target="new">[Link]</a>.<BR><BR>
+The VS2005 redistribution file for this program can be downloaded at: <a href="vcredist_x86.exe">[EXE]</a>.
+<BR><BR>
+
+
+<BR><BR>
+Related Publications:<BR><BR>
+<a name="ref01"></a>
+[1] Charlie C.L. Wang, "<a href="http://dx.doi.org/10.1109/TVCG.2010.106" target="new">Approximate Boolean operations on large polyhedral solids with partial mesh reconstruction</a>", IEEE Transactions on Visualization and Computer Graphics, vol.17, no.6, pp.836-849, June 2011. <a href="../pubs/TVCGMeshBoolean.pdf" target="new">[PDF]</a><BR><BR>
+
+<a name="ref02"></a>
+[2] Charlie C.L. Wang, and Dinesh Manocha, "<a href="http://dx.doi.org/10.1109/TVCG.2012.104" target="new">Efficient boundary extraction of BSP solids based on clipping operations</a>", IEEE Transactions on Visualization and Computer Graphics, vol.19, no.1, pp.16-29, January 2013. <a href="pubs/TVCGBSPPolygonization.pdf" target="new">[PDF]</a> <a href="../pubs/TVCGBSPPolygonization_Supplementary.pdf" target="new">[Supplementary]</a><BR><BR>
+
+<a name="ref03"></a>
+[3] Charlie C.L. Wang, and Yong Chen, "<a href="http://dx.doi.org/10.1108/RPJ-02-2012-0013" target="new">Thickening freeform surfaces for solid fabrication</a>", Rapid Prototyping Journal, vol.19, no.6, pp.395-406, November 2013. <a href="../pubs/RPJThickening.pdf" target="new">[PDF]</a><BR><BR>
+
+</td>
+
+<tr><td colspan=3 align=center> 
+ 
+<P><BR><P><BR> 
+
+</td></tr>
+
+</table>
+
+
+</BODY>
+</HTML>

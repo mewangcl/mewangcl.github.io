@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+ 
+<body TEXT="#ffffff" BGCOLOR="#666666" LINK="#ff9933" VLINK="#ff9933" ALINK="#ff9933">
+
+<table width=800 cellpadding=0 cellspacing=0 align=center><tr>
+<td valign=top><font color="ffffff">
+
+<P>
+<font color="ffffff">
+<B>Conservative LDI Sampling Tool (CST)</B><BR><BR>
+By: Debbie Yuen-Shan Leung and Charlie C. L. Wang<BR><BR>
+Email: yleung@mae.cuhk.edu.hk; cwang@mae.cuhk.edu.hk<BR><BR>
+
+<BR><BR>
+1.Copyright<BR><BR>
+- CST is developed by Yuen-Shan Leung for research use. All rights about the program (esp. shaders) are reserved by Yuen-Shan Leung and Charlie C.L. Wang at the Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong. This C++ source codes are available only to a primary user for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. CST is self-contained and built on top of other source codes (see the copyright terms therein). 
+<BR><BR>
+
+2.Download<BR><BR>
+- The source code (VS2005 project + GLSL shader program) from the link:
+<a href="ConLDISampling.rar">[Source Code (376KB RAR file)]</a><BR><BR>
+
+
+3.Installing & Compiling (Windows + VS2005 + Graphics Card)<BR><BR>
+- Update your graphics card driver.<BR><BR>
+
+- Unpack the rar-zip file to a suitable place and use VS2005 to build the project.<BR><BR>
+
+
+4.Usage<BR><BR>
+- Put the data files (.obj) in ./Data directory.
+<BR><BR>
+- Parameters:
+<BR><BR>
+input: .obj file
+<BR><BR>
+output: .obj file (LDI images)
+<BR><BR>
+Resolution of Sampling: Layer Depth Image resolution.
+<BR><BR>
+Level of Detail in conservation (LOD-C): a factor controlling the maximum number of layers that can be outputted.
+<BR><BR>
+-Example:
+<BR>
+a) Menu > Input Model > Type: sphere.obj
+<BR>
+b) Menu > Conservative Sampling > Type: 512 > Type: 1024
+<BR>
+c) Save the result: Right click > Output LDI to Obj > a new file named "LDIModel.obj" is generated.
+<BR>
+** We allow users to decide whether or not to use geometry shader as a performance enhancement tool.
+<BR><BR>
+- Control:
+<BR>Mouse[Left]: rotate
+<BR>Mouse[Left+Shift]: dolly
+<BR>Mouse[Left+Ctrl]: pan
+<BR>Mouse[Right]: menu
+
+<BR><BR>
+
+
+5.File format<BR><BR>
+
+- obj file: a general wavefront file with input triangle mesh<BR><BR>
+<BR><BR>
+
+</td>
+
+<tr><td colspan=3 align=center> 
+ 
+<P><BR><P><BR> 
+
+</td></tr>
+
+</table>
+
+
+</BODY>
+</HTML>

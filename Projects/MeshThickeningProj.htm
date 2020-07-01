@@ -1,0 +1,86 @@
+
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Thickening: A Library for General Mesh Offsetting</title>
+
+</head>
+
+<body>
+
+<center><h1>Thickening: A Library for General Mesh Offsetting</h1></center>
+<font size="1" face="Verdana">
+<center>
+<h1>
+<a href="http://www.mae.cuhk.edu.hk/~cwang/">Charlie C.L. Wang</a>
+</h1>
+</center></font>
+
+<center>
+
+
+<a href="#WHATISMESHTHICKENING">What is Thickening?</a> 
+<a href="#COPYRIGHT">Copyright</a> 
+<a href="#SOURCECODE">Source Code</a> 
+</center>
+
+<hr>
+
+<a name="WHATISMESHTHICKENING">
+<b>What is Thickening?</b></a><br><br>
+
+Thickening is a library written in C++, which provides the algorithm for computing the offsetting solids of mesh models. When the input is an open surface, the skinned solid with a user-specified thickness will be generated with the help of distance-field [1]. While a uniformly hollowed solid will be generated if the input is a model with closed surface. This algorithm is actually a deviation of our earlier work for uniform offsetting a mesh model - also based on signed distance-field [2]. <br><br>
+
+The implementation of this algorithm is based on a complex-based mesh data structure and basic operators that are introduced in [3]. The efficient distance evaluation for query points is based on the PQP library [4] of UNC, and Dr. Shengjun Liu modified it to be able to return not only the closest point to a query but only the triangle containing this closet point when developing the work in [2].
+
+
+<br><br>
+
+
+<b>Reference:</b><br>
+
+[1] Charlie C.L. Wang, and Yong Chen, 
+"<a href="http://dx.doi.org/10.1108/RPJ-02-2012-0013" target="new">Thickening freeform surfaces for solid fabrication</a>", Rapid Prototyping Journal, vol.19, no.6, pp.395-406, November 2013.<br>
+
+[2] Shengjun Liu, and Charlie C.L. Wang, 
+"<a href="http://dx.doi.org/10.1109/TASE.2010.2066563" target="new">Fast intersection-free offset surface generation from freeform models with triangular meshes</a>", IEEE Transactions on Automation Science and Engineering, vol.8, no.2, pp.347-360, April 2011.<br>
+
+
+
+[3] Charlie C.L. Wang, Yu Wang, and Matthew M.F. Yuen, 
+"<a href="http://dx.doi.org/10.1007/s00366-003-0251-5" target="new">Feature-based 3D non-manifold freeform object construction</a>", Engineering with Computers, vol.19, no.2-3, pp.174-190, 2003.<br>
+
+
+
+[4] Eric Larsen, Stefan Gottschalk, Ming C. Lin, and Dinesh Manocha, 
+"<a href="https://doi.org/10.1109/ROBOT.2000.845311" target="new">Fast proximity queries with swept sphere volumes</a>", Proceedings of International Conference on Robotics and Automation, 2000, pp.3719-3726.
+
+<hr>
+
+<a name="COPYRIGHT"><b>Copyright</b></a><br><br>
+
+All rights about the program are reserved by Charlie C.L. Wang at the Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong. In no event shall 
+
+the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising 
+
+out of the use of this program.
+
+
+<hr>
+
+<a name="SOURCECODE"><b>Source Code</b></a><br><br>
+
+The current version of Thickening library can be downloaded here. 
+<dt><li>Window Version (by Visual Studio): <a href="MeshWorkMTWin.zip">MeshWorkMTWin.zip</a> (Date: February 1, 2018)</li></dt>
+<dt><li>Mac Version (by XCode): <a href="MeshWorkMTMac.zip">MeshWorkMTMac.zip</a> (Date: February 5, 2018)</li></dt>
+<br>
+
+This program is developed by C++ and the GUI is based on GLUT. 
+<dt><li>Information about building OpenGL/GLUT programs on different platforms (Linux/Mac/Windows): <a href="http://web.eecs.umich.edu/~sugih/courses/eecs487/glut-howto/">link</a></li></dt>
+<dt><li>The library of GLUT: <a href="../Courses/TUDelftShapeModeling/glut-3.7.6-bin.zip">download</a>
+
+<br><br>
+<a href="http://www.mae.cuhk.edu.hk/~cwang/">Home</a>
+
+
+</body></html> 
