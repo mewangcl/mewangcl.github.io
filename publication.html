@@ -1,4 +1,4 @@
-﻿<HTML><HEAD><TITLE></TITLE><link rel="stylesheet" type="text/css" href="defaultpage2.css"></HEAD>
+<HTML><HEAD><TITLE></TITLE><link rel="stylesheet" type="text/css" href="defaultpage2.css"></HEAD>
 
 <body TEXT="#ffffff" BGCOLOR="#666666" LINK="#ff9933" VLINK="#ff9933" ALINK="#ff9933">
 
@@ -20,7 +20,26 @@
 
 
 
-
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/CASELearningDecomp3DP.jpg" width="160" border="0"></td><td width=830 valign=top>
+Chenming Wu, Yong-Jin Liu, and <B>Charlie C.L. Wang</B>, "<a href="http://arxiv.org/abs/2004.03450" target="new">Learning to accelerate decomposition for multi-directional 3D printing</a>", IEEE Robotics and Automation Letters, Presented at IEEE International Conference on Automation Science and Engineering (CASE 2020), Hong Kong, August 20-24, 2020. 
+<a href="https://github.com/chenming-wu/pymdp/" target="new">[Source Code]</a>
+<a href="https://youtu.be/OOkxNKGhN7A" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+Multi-directional 3D printing has the capability of decreasing or eliminating the need for support structures. 
+Recent work proposed a beam-guided search algorithm to find an optimized sequence of plane-clipping, which gives volume decomposition of a given 3D model. 
+Different printing directions are employed in different regions to fabricate a model with tremendously less support (or even no support in many cases). 
+To obtain optimized decomposition, a large beam width needs to be used in the search algorithm, leading to a very time-consuming computation. 
+In this paper, we propose a learning framework that can accelerate the beam-guided search by using a smaller number of the original beam width to obtain results with similar quality. 
+Specifically, we use the results of beam-guided search with large beam width to train a scoring function for candidate clipping planes based on six newly proposed feature metrics. 
+With the help of these feature metrics, both the current and the sequence-dependent information are captured by the neural network to score candidates of clipping. 
+As a result, we can achieve around 3x computational speed. We test and demonstrate our accelerated decomposition on a large dataset of models for 3D printing.
+<p></p></tr>
+</table>
+<BR><BR>
 
 
 
@@ -44,8 +63,6 @@ Data-driven methods for modeling the realistic shape of 3D human bodies need to 
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/CADContourParaToolpath.jpg" width="160" border="0"></td><td width=830 valign=top>
 Tim Kuipers, Eugeni L. Doubrovski, Jun Wu, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1016/j.cad.2020.102907" target="new">A framework for adaptive width control of dense contour-parallel toolpaths in fused deposition modeling</a>", Computer-Aided Design, accepted. 
-
-
 <a href="https://arxiv.org/abs/2004.13497" target="new">[arXiv]</a> 
 <BR><BR>
 <B>Abstract</B>
@@ -55,29 +72,6 @@ Tim Kuipers, Eugeni L. Doubrovski, Jun Wu, and <B>Charlie C.L. Wang</B>, "<a hre
 </table>
 <BR><BR>
 
-
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/CASELearningDecomp3DP.jpg" width="160" border="0"></td><td width=830 valign=top>
-Chenming Wu, Yong-Jin Liu, and <B>Charlie C.L. Wang</B>, "<a href="http://arxiv.org/abs/2004.03450" target="new">Learning to accelerate decomposition for multi-directional 3D printing</a>", 2020 IEEE International Conference on Automation Science and Engineering (CASE 2020), Hong Kong, August 20-24, 2020. 
-<a href="https://github.com/chenming-wu/pymdp/" target="new">[Source Code]</a>
-<a href="https://youtu.be/OOkxNKGhN7A" target="new">[Video@YouTube]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-Multi-directional 3D printing has the capability of decreasing or eliminating the need for support structures. 
-Recent work proposed a beam-guided search algorithm to find an optimized sequence of plane-clipping, which gives volume decomposition of a given 3D model. 
-Different printing directions are employed in different regions to fabricate a model with tremendously less support (or even no support in many cases). 
-To obtain optimized decomposition, a large beam width needs to be used in the search algorithm, leading to a very time-consuming computation. 
-In this paper, we propose a learning framework that can accelerate the beam-guided search by using a smaller number of the original beam width to obtain results with similar quality. 
-Specifically, we use the results of beam-guided search with large beam width to train a scoring function for candidate clipping planes based on six newly proposed feature metrics. 
-With the help of these feature metrics, both the current and the sequence-dependent information are captured by the neural network to score candidates of clipping. 
-As a result, we can achieve around 3x computational speed. We test and demonstrate our accelerated decomposition on a large dataset of models for 3D printing.
-<p></p></tr>
-</table>
-<BR><BR>
 
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
