@@ -22,6 +22,28 @@
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/TROSoftKinematics.jpg" width="160" border="0">
+</td>
+<td width=830 valign=top>
+Guoxin Fang, Christopher-Denny Matte, Rob B.N. Scharff, Tsz-Ho Kwok, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1109/TRO.2020.2985583" target="new">Kinematics of soft robots by geometric computing</a>", IEEE Transactions on Robotics, accepted. 
+<a href="pubs/TROSoftKinematics.pdf" target="new">[PDF]</a> 
+<a href="https://youtu.be/RTc0wWSmDFw" target="new">[Video@YouTube]</a> 
+<BR><BR>
+
+(This is an extended version of the paper - <a href="https://doi.org/10.1109/ICRA.2018.8461088" target="new">Geometry-based direct simulation for multi-material soft robots</a>, 
+which is published in 2018 IEEE ICRA Conference, Brisbane, Australia, May 21-25, 2018.) 
+<!--------- <a href="https://youtu.be/vTKMGV1uf_c" target="new">[Video@YouTube]</a>)  ----->
+<BR><BR>
+<B>Abstract</B><BR>
+Robots fabricated with soft materials can provide higher flexibility and thus better safety while interacting in unpredictable situations. However, the usage of soft material makes it challenging to predict the deformation of a continuum body under actuation and therefore brings difficulty to the kinematic control of its movement. In this paper, we present a geometry-based framework for computing the deformation of soft robots within the range of linear material elasticity. After formulating both manipulators and actuators with geometry elements, deformation can be efficiently computed by solving a constrained optimization problem. Based on its efficiency, forward and inverse kinematics for soft manipulators can be effectively solved by an iterative algorithm. Meanwhile, components with multiple materials can also be geometrically modeled in our framework with the help of a simple calibration. Numerical and physical experimental tests are conducted on soft manipulators driven by different actuators with large deformation to demonstrate the performance of our approach.
+<BR>
+<p></p></tr>
+</table>
+<BR><BR>
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/CASELearningDecomp3DP.jpg" width="160" border="0"></td><td width=830 valign=top>
 Chenming Wu, Yong-Jin Liu, and <B>Charlie C.L. Wang</B>, "<a href="http://arxiv.org/abs/2004.03450" target="new">Learning to accelerate decomposition for multi-directional 3D printing</a>", IEEE Robotics and Automation Letters, Presented at IEEE International Conference on Automation Science and Engineering (CASE 2020), Hong Kong, August 20-24, 2020. 
 <a href="https://github.com/chenming-wu/pymdp/" target="new">[Source Code]</a>
@@ -46,51 +68,13 @@ As a result, we can achieve around 3x computational speed. We test and demonstra
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/CAD3DHumanSparseRep.jpg" width="160" border="0"></td><td width=830 valign=top>
-Yiu-Bun Wu, Bin Liu, Xiuping Liu, and <B>Charlie C.L. Wang</B>, "Data-driven human modeling by sparse representation", 
+Yiu-Bun Wu, Bin Liu, Xiuping Liu, and <B>Charlie C.L. Wang</B>, 
+"<a href="https://doi.org/10.1016/j.cad.2020.102913" target="new">Data-driven human modeling by sparse representation</a>", 
 Computer-Aided Design, accepted. <a href="pubs/CAD3DHumanSparseRep.pdf" target="new">[PDF]</a>
 <BR><BR>
 <B>Abstract</B>
 <BR>
 Data-driven methods for modeling the realistic shape of 3D human bodies need to access datasets that contain a large amount of 3D human models. A very challenging problem is to find an appropriate representation for storing these 3D models as their raw data representations in triangular meshes take a large amount of space. We develop a method based on sparse representation in this paper to represent 3D human models as signals of patches. Unlike the general mesh compression approaches, all mesh models used in a data-driven human modeling framework have the same mesh connectivity. By using this property, we segment a human model into patches containing the same number of vertices. L0-learning algorithm is selected to train an overcomplete dictionary matrix, which in turn introduced sparse representation of the dataset. Patch signals of individual human models can then be extracted by using the dictionary matrix. With the ease of balance control between sparsity and accuracy that is featured by the chosen learning algorithm, a representation with high compression ratio and low shape-approximation error can be determined. The results have been compared with the widely used statistic representation based on <I>principal component analysis</I> (PCA) to verify the effectiveness of our approach. Moreover, the method for using sparse representation in the regression-based statistical modeling of 3D human models has been presented at the end of the paper.
-<p></p></tr>
-</table>
-<BR><BR>
-
-
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/CADContourParaToolpath.jpg" width="160" border="0"></td><td width=830 valign=top>
-Tim Kuipers, Eugeni L. Doubrovski, Jun Wu, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1016/j.cad.2020.102907" target="new">A framework for adaptive width control of dense contour-parallel toolpaths in fused deposition modeling</a>", Computer-Aided Design, accepted. 
-<a href="https://arxiv.org/abs/2004.13497" target="new">[arXiv]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-3D printing techniques such as Fused Deposition Modeling (FDM) have enabled the fabrication of complex geometry quickly and cheaply. High stiffness parts are produced by filling the 2D polygons of consecutive layers with contour-parallel extrusion toolpaths. Uniform width toolpaths consisting of inward offsets from the outline polygons produce over- and underfill regions in the center of the shape, which are especially detrimental to the mechanical performance of thin parts. In order to fill shapes with arbitrary diameter densely the toolpaths require adaptive width. Existing approaches for generating toolpaths with adaptive width result in a large variation in widths, which for some hardware systems is difficult to realize accurately. In this paper we present a framework which supports multiple schemes to generate toolpaths with adaptive width, by employing a function to decide the number of beads and their widths. Furthermore, we propose a novel scheme which reduces extreme bead widths, while limiting the number of altered toolpaths. We statistically validate the effectiveness of our framework and this novel scheme on a data set of representative 3D models, and physically validate it by developing a technique, called back pressure compensation, for off-the-shelf FDM systems to effectively realize adaptive width.
-<p></p></tr>
-</table>
-<BR><BR>
-
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/TROSoftKinematics.jpg" width="160" border="0">
-</td>
-<td width=830 valign=top>
-Guoxin Fang, Christopher-Denny Matte, Rob B.N. Scharff, Tsz-Ho Kwok, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1109/TRO.2020.2985583" target="new">Kinematics of soft robots by geometric computing</a>", IEEE Transactions on Robotics, accepted. 
-<a href="pubs/TROSoftKinematics.pdf" target="new">[PDF]</a> 
-<a href="https://youtu.be/RTc0wWSmDFw" target="new">[Video@YouTube]</a> 
-<BR><BR>
-
-(This is an extended version of the paper - <a href="https://doi.org/10.1109/ICRA.2018.8461088" target="new">Geometry-based direct simulation for multi-material soft robots</a>, 
-which is published in 2018 IEEE ICRA Conference, Brisbane, Australia, May 21-25, 2018.) 
-<!--------- <a href="https://youtu.be/vTKMGV1uf_c" target="new">[Video@YouTube]</a>)  ----->
-<BR><BR>
-<B>Abstract</B><BR>
-Robots fabricated with soft materials can provide higher flexibility and thus better safety while interacting in unpredictable situations. However, the usage of soft material makes it challenging to predict the deformation of a continuum body under actuation and therefore brings difficulty to the kinematic control of its movement. In this paper, we present a geometry-based framework for computing the deformation of soft robots within the range of linear material elasticity. After formulating both manipulators and actuators with geometry elements, deformation can be efficiently computed by solving a constrained optimization problem. Based on its efficiency, forward and inverse kinematics for soft manipulators can be effectively solved by an iterative algorithm. Meanwhile, components with multiple materials can also be geometrically modeled in our framework with the help of a simple calibration. Numerical and physical experimental tests are conducted on soft manipulators driven by different actuators with large deformation to demonstrate the performance of our approach.
-<BR>
 <p></p></tr>
 </table>
 <BR><BR>
@@ -124,6 +108,26 @@ We present a method for effectively planning the motion trajectory of robots in 
 <p></p></tr>
 </table>
 <BR><BR>
+
+
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/CADContourParaToolpath.jpg" width="160" border="0"></td><td width=830 valign=top>
+Tim Kuipers, Eugeni L. Doubrovski, Jun Wu, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1016/j.cad.2020.102907" target="new">A framework for adaptive width control of dense contour-parallel toolpaths in fused deposition modeling</a>", Computer-Aided Design, vol.128, 102907, November 2020. 
+<a href="https://arxiv.org/abs/2004.13497" target="new">[arXiv]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+3D printing techniques such as Fused Deposition Modeling (FDM) have enabled the fabrication of complex geometry quickly and cheaply. High stiffness parts are produced by filling the 2D polygons of consecutive layers with contour-parallel extrusion toolpaths. Uniform width toolpaths consisting of inward offsets from the outline polygons produce over- and underfill regions in the center of the shape, which are especially detrimental to the mechanical performance of thin parts. In order to fill shapes with arbitrary diameter densely the toolpaths require adaptive width. Existing approaches for generating toolpaths with adaptive width result in a large variation in widths, which for some hardware systems is difficult to realize accurately. In this paper we present a framework which supports multiple schemes to generate toolpaths with adaptive width, by employing a function to decide the number of beads and their widths. Furthermore, we propose a novel scheme which reduces extreme bead widths, while limiting the number of altered toolpaths. We statistically validate the effectiveness of our framework and this novel scheme on a data set of representative 3D models, and physically validate it by developing a technique, called back pressure compensation, for off-the-shelf FDM systems to effectively realize adaptive width.
+<p></p></tr>
+</table>
+<BR><BR>
+
+
+
+
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
