@@ -1,0 +1,33 @@
+Reinforced FDM by Multi-Axis 3D Printing
+
+
+I would like to check if your website interests about reporting our recent breakthrough published in a newly accepted SIGGRAPH Asia 2020 paper. This is a joint project conducted in my research group (The University of Manchester, UK) and collaborated with the research group of Dr.Zichun Zhong (Wayne State University, U.S.A). 
+
+This research project is an extended development of the project, Multi-Axis Robotic 3D Printing, which reported by your website two years ago. (https://3dprint.com/215803/multi-axis-robotic-3d-printer/)
+
+Details of the newly accepted paper are:
+
+Guoxin Fang, Tianyu Zhang, Sikai Zhong, Xiangjia Chen, Zichun Zhong, and Charlie C.L. Wang, "Reinforced FDM: multi-axis filament alignment with controlled anisotropic strength", ACM Transaction on Graphics (SIGGRAPH Asia 2020), accepted.
+
+Project page: https://guoxinfang.github.io/ReinforcedFDM
+Video: https://youtu.be/X2o2-SJFv2M
+PDF: https://mewangcl.github.io/pubs/SIGAsia2020ReinforcedFDM.pdf
+
+Co-Authors:
+Guoxin Fang, Tianyu Zhang and Xiangjia Chen are PhD students supervised by me at TU Delft / CUHK before I move to University of Manchester in this Summer. 
+Sikai Zhong is a PhD student supervised by Dr.Zhong at Wayne State University.
+
+
+Thanks for your consideration.
+
+Best Regards,
+Charlie
+--
+Charlie C.L. Wang, Ph.D., Fellow of ASME
+
+Professor and Chair of Smart Manufacturing
+Department of Mechanical, Aerospace and Civil Engineering
+The University of Manchester
+
+Email: changling.wang@manchester.ac.uk
+Web: https://www.research.manchester.ac.uk/portal/changling.wang.html
