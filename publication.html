@@ -23,7 +23,7 @@
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/SIGAsia2020ReinforcedFDM.jpg" width="161" border="0"></td><td width=830 valign=top>
 Guoxin Fang, Tianyu Zhang, Sikai Zhong, Xiangjia Chen, Zichun Zhong, and <B>Charlie C.L. Wang</B>, "Reinforced FDM:
-multi-axis filament alignment with controlled anisotropic strength", ACM Transaction on Graphics (SIGGRAPH Asia 2020), 
+Multi-axis filament alignment with controlled anisotropic strength", ACM Transaction on Graphics (SIGGRAPH Asia 2020), 
 vol.39, no.6, article no.204 (15 pages), December 2020. 
 <a href="https://guoxinfang.github.io/ReinforcedFDM" target="new">[Project]</a> 
 <a href="pubs/SIGAsia2020ReinforcedFDM.pdf" target="new">[PDF]</a> 
@@ -1095,12 +1095,12 @@ In this paper, we revisit the problem of 3D human modeling from two orthogonal s
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/CADLatticeImplicitModeling.jpg" width="160" border="0"></td><td width=830 valign=top>
-Shengjun Liu, Tao Liu, Weiming Wang, Eugeni L. Doubrovski, and <B>Charlie C.L. Wang</B>, "Memory-efficient modeling of adaptive lattice structures for additive manufacturing", under review. 
+<img src="pubs/AMLatticeImplicitModeling.jpg" width="160" border="0"></td><td width=830 valign=top>
+Shengjun Liu, Tao Liu, Qiang Zou, Weiming Wang, Eugeni L. Doubrovski, and <B>Charlie C.L. Wang</B>, "Memory-efficient modeling and slicing of large-scale adaptive lattice structures", under review. 
 <BR><BR>
 <B>Abstract</B>
 <BR>
-Lattice structures have been widely used in different applications of additive manufacturing due to its many superior physical properties. When being directly modeled by triangular meshes, a lattice structure with high complexity in geometry consumes a lot of memory. This prevents the usage of lattice structures in large scale applications (e.g., to design the interior structure of a solid with spatially graded material properties). In this paper, we propose a memory-efficient method to model adaptive lattice structures. Only a graph together with the radii of its edges are stored for representing a lattice structure. The corresponding solid for a lattice structure is generated locally by convolution surface in a streaming manner when slicing the solid. As a result, only limited memory is consumed for generating the planar contours for fabrication. Lattice structures with a massive number of struts can be effectively and efficiently modeled and processed. Different from distance-field, solid models represented by convolution surfaces have naturally blended shape at the intersections of struts which can avoid the stress concentration at regions with curvature discontinuity. Algorithms have also been developed in our framework to minimize the need of supporting structures and to generate a lattice structure meeting the designed density distribution.
+Lattice structures have been widely used in various applications of additive manufacturing due to its superior physical properties. If modeled by triangular meshes, a lattice structure with huge number of struts would consume massive memory. This hinders the use of lattice structures in large-scale applications (e.g., to design the interior structure of a solid with spatially graded material properties). To solve this issue, we propose a memory-efficient method for the modeling and slicing of adaptive lattice structures. A lattice structure is represented by a weighted graph where the edge weights store the struts' radii. When slicing the structure, its solid model is locally evaluated through convolution surfaces and in a streaming manner. As such, only limited memory is needed to generate the toolpaths of fabrication. Also, the use of convolution surfaces leads to natural blending at intersections of struts, which can avoid the stress concentration at these regions. We also present a computational framework for optimizing supporting structures and adapting lattice structures with prescribed density distributions. The presented methods have been validated by a series of case studies with large number (up to 100M) of struts to demonstrate its applicability to large-scale lattice structures.
 <p></p></tr>
 </table>
 <BR><BR>
