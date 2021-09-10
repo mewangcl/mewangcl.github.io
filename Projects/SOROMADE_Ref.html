@@ -1,0 +1,342 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:DengXian;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@DengXian";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-HK link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:normal'><b><span
+lang=EN-GB style='font-size:12.0pt'>SORO-MADE: Soft Robotic Mannequin with
+Programmable Shape Deformation</span></b></p>
+
+<p class=MsoNormal style='line-height:normal'><span lang=EN-GB
+style='color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:normal'><i><span lang=EN>References</span></i><span
+lang=EN> (Part II – Full version):    </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[1]</span></b><span lang=EN
+style='color:black'>     British Fashion Council Annual Report, </span><span
+lang=EN><a href="https://www.britishfashioncouncil.co.uk/About/Reports">https://www.britishfashioncouncil.co.uk/About/Reports</a><span
+style='color:black'>, 2020. </span></span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[2]</span></b><span lang=EN
+style='color:black'>     Realising the growth potential of UK fashion and
+textile manufacturing: a report for the Alliance project and NBrown – national
+textiles growth programme, Manchester, Growth Company, 2017.</span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[3]</span></b><span lang=EN
+style='color:black'>     Allwood J.M., Laursen S.E., de Rodríguez C.M., and
+Bocken N., <i>Well dressed? The present and future sustainability and clothing
+and textiles in the United Kingdom</i>, University of Cambridge Institute for
+Manufacturing, 2006. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[4]</span></b><span lang=EN
+style='color:black'>     Retail trends, Deloitte, 2021. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[5]</span></b><span lang=EN
+style='color:black'>     Mannequins: History, Trends, and Key Figures,
+FashionUnited (UK), 2016. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[6]</span></b><span lang=EN
+style='color:black'>     Dress forms, </span><span lang=EN><a
+href="https://alvanon.com">https://alvanon.com</a><span style='color:black'>; </span></span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[7]</span></b><span lang=EN
+style='color:black'>     Rus D. and Tolley M., &quot;Design, fabrication and
+control of soft robots&quot;, Nature, 521(7553):467-475, 2015. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[8]</span></b><span lang=EN
+style='color:black'>     Ma L.K., Zhang Y., Liu Y., Zhou K., and Tong X., &quot;Computational
+design and fabrication of soft pneumatic objects with desired
+deformations&quot;, ACM Transactions on Graphics, 36(6):239, 2017. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[9]     </span></b><span lang=EN
+style='color:black'>Yap H.K., Ng H.Y., and Yeow C.-H., &quot;High-force soft
+printable pneumatics for soft robotic applications&quot;, Soft Robotics,
+3(3):144-158, 2016. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[10]   </span></b><span lang=EN
+style='color:black'>Duriez C. et al<b>, </b>&quot;Framework for online
+simulation of soft robots with optimization based inverse model&quot;, IEEE International
+Conference on Simulation, Modeling, and Programming for Autonomous Robots
+(SIMPAR), 111-118, 2016. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[11]</span></b><span lang=EN
+style='color:black'>   Goury O. and Duriez C., &quot;Fast, generic, and
+reliable control and simulation of soft robots using model order
+reduction&quot;, IEEE Transactions on Robotics, 34(6):1565-1576, 2018. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[12]</span></b><span lang=EN
+style='color:black'>   Fang G., Matte C.D., Scharff R.B.N., Kwok T.H., and Wang
+C.C.L., &quot;Kinematics of soft robots by geometric computing&quot;, IEEE
+Transactions on Robotics, 36(4):1272-1286, 2020. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[13]</span></b><span lang=EN
+style='color:black'>   Jones B.A. and Walker I.D., &quot;Kinematics for
+multisection continuum robots&quot;, IEEE Transactions on Robotics,
+22(1):43-55, 2006. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[14]</span></b><span lang=EN
+style='color:black'>   Trivedi D., Lotfi A., and Rahn C.D., &quot;Geometrically
+exact models for soft robotic manipulators&quot;, IEEE Transactions on Robotics,
+24(4):773-780, 2008; </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[15]</span></b><span lang=EN
+style='color:black'>   Renda F., Giorelli M., Calisti M., Cianchetti M., and Laschi
+C., &quot;Dynamic model of a multibending soft robot arm driven by
+cables&quot;, IEEE Transactions on Robotics, 30(5):1109-1122, 2014. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[16]</span></b><span lang=EN
+style='color:black'>   Giorelli M., Renda F., Calisti M., Arienti A., Ferri G.,
+and Laschi C., &quot;Neural network and Jacobian method for solving the inverse
+statics of a cable-driven soft arm with nonconstant curvature&quot;, IEEE
+Transactions on Robotics, 31(4):823-834, 2015. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[17]</span></b><span lang=EN
+style='color:black'>   Lee K.H., Fu D.K.C., Leong M.C.W., Chow M., Fu H.C., Althoefer
+K., Sze K.Y., Yeung C.K., and Kwok K.W., &quot;Nonparametric online learning
+control for soft continuum robot: An enabling technique for effective
+endoscopic navigation&quot;, Soft Robotics, 4(4):324-337, 2017. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[18]</span></b><span lang=EN
+style='color:black'>   Elgeneidy K., Neumann G., Jackson M.R., and Lohse N., &quot;Directly
+printable flexible strain sensors for bending and contact feedback of soft
+actuators&quot;, Frontiers in Robotics and AI, 5(2), 2018. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[19]</span></b><span lang=EN
+style='color:black'>   Morrow J. et al, &quot;Improving soft pneumatic actuator
+fingers through integration of soft sensors, position and force control, and
+rigid fingernails&quot;, IEEE International Conference on Robotics and Automation
+(ICRA), 5024–5031, 2016.</span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[20]</span></b><span lang=EN
+style='color:black'>   Yang Y. and Chen Y., &quot;Innovative design of embedded
+pressure and position sensors for soft actuators&quot;, IEEE Robotics and
+Automation Letters, 3(2):656–663, 2018. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[21]</span></b><span lang=EN
+style='color:black'>   Elgeneidy K., Lohse N., and Jackson M., &quot;Bending
+angle prediction and control of soft pneumatic actuators with embedded flex
+sensors a data-driven approach&quot;, Mechatronics, 50:234 – 247, 2018. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[22]</span></b><span lang=EN
+style='color:black'>   Thuruthe T.G., Shih B., Laschi C., and Tolley M.T., &quot;Soft
+robot perception using embedded soft sensors and recurrent neural
+networks&quot;, Science Robotics, 4(26), 2019. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[23]</span></b><span lang=EN
+style='color:black'>   Truby R.L., Santina C.D., and Rus D., &quot;Distributed
+proprioception of 3d configuration in soft, sensorized robots via deep
+learning&quot;, IEEE Robotics and Automation Letters, 5(2):3299-3306, 2020; </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[24]</span></b><span lang=EN
+style='color:black'>   Ozel S. et al, &quot;A composite soft bending actuation
+module with integrated curvature sensing&quot;, IEEE International Conference
+on Robotics and Automation (ICRA), 4963-4968, 2016. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[25]</span></b><span lang=EN
+style='color:black'>   Felt W., Suen M., and Remy C.D., &quot;Sensing the
+motion of bellows through changes in mutual inductance&quot;, IEEE/RSJ
+International Conference on Intelligent Robots and Systems (IROS), 5252–5257,
+2016. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[26]</span></b><span lang=EN
+style='color:black'>   Wang R., Wang S., Du S., Xiao E., Yuan W., and Feng C., &quot;Real-time
+soft body 3D proprioception via deep vision-based sensing&quot;, IEEE Robotics
+and Automation Letters, 5(2):3382-3389, 2020. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[27]</span></b><span lang=EN
+style='color:black'>   Ward-Cherrier B., Pestell N., Cramphorn L., Winstone M.,
+Giannaccini M.E., Rossiter J., and Lepora N.F., &quot;The tactip family: Soft
+optical tactile sensors with 3d-printed biomimetic morphologies&quot;, Soft
+Robotics, 5(2):216-227, 2018; </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[28]</span></b><span lang=EN
+style='color:black'>   Lin X., Willemet L., Bailleul A., and Wiertlewski M., &quot;Curvature
+sensing with a spherical tactile sensor using the color-interference of a
+marker array&quot;, IEEE International Conference on Robotics and Automation
+(ICRA), 603-609, 2020; </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[29]</span></b><span lang=EN
+style='color:black'>   Scharff R.B.N., Doornbusch R.M., Doubrovski E.L., Wu J.,
+Geraedts J.M.P., and Wang C.C.L., &quot;Color-based proprioception of soft
+actuators interacting with objects&quot;, IEEE/ASME Transactions on
+Mechatronics, 24(5):1964-1973, 2019. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[30]</span></b><span lang=EN
+style='color:black'>   CAESAR: 3-D Anthropometric Database, </span><span
+lang=EN><a href="http://www.shapeanalysis.com/CAESAR.htm">http://www.shapeanalysis.com/CAESAR.htm</a><span
+style='color:black'>; </span></span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[31]</span></b><span lang=EN
+style='color:black'>   Chu C.H., Tsai Y.T., Wang C.C.L., and Kwok T.H., &quot;Exemplar-based
+statistical model for semantic parametric design of human body&quot;, Computers
+in Industry, 61(6):541-549, 2010. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[32]</span></b><span lang=EN
+style='color:black'>   Kwok T.H., Zhang Y., and Wang C.C.L., &quot;Efficient
+optimization of common base domains for cross-parameterization&quot;, IEEE Transactions
+on Visualization and Computer Graphics, 18(10):1678-1692, 2012. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[33]</span></b><span lang=EN
+style='color:black'>   Kwok T.H., Yeung K.Y., and Wang C.C.L., &quot;Volumetric
+template fitting for human body reconstruction from incomplete data&quot;,
+Journal of Manufacturing Systems, 33(4):678-689, 2014. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[34]   </span></b><span lang=EN
+style='color:black'>Pishchulin L., Wuhrer S., Helten T., Theobalt C., and Schiele
+B.,<b> </b>&quot;Building statistical shape spaces for 3D human modeling&quot;,
+Pattern Recognition, 67:276-286, 2017. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[35]</span></b><span lang=EN
+style='color:black'>   Scharff R.B.N., Fang G., Tian Y., Wu J., Geraedts J.M.P.,
+and Wang C.C.L., &quot;Sensing and reconstruction of 3D deformation on
+pneumatic soft robots&quot;, IEEE/ASME Transactions on Mechatronics,
+26(4):1877-1885, 2021. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[36]</span></b><span lang=EN
+style='color:black'>   Liu B., Liu X., Yang Z., and Wang C.C.L., &quot;Concise
+and effective network for 3D human modeling from orthogonal silhouettes&quot;, ASME
+Journal of Computing and Information Science in Engineering, 2021. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[37]</span></b><span lang=EN
+style='color:black'>   Miell S., Gill S., and Vazquez D., &quot;Enabling the
+digital fashion consumer through fit and sizing technology&quot;, Journal of
+Global Fashion Marketing, 9(1):9-23, 2018. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[38]</span></b><span lang=EN
+style='color:black'>   MycoTEX, </span><span lang=EN><a
+href="https://neffa.nl/mycotex/">https://neffa.nl/mycotex/</a><span
+style='color:black'>; </span></span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[39]</span></b><span lang=EN
+style='color:black'>   Gupta, D., &quot;Anthropometry and the design and
+production of apparel: an overview&quot;, Anthropometry, Apparel Sizing and
+Design, 34-66, 2014. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[40]</span></b><span lang=EN
+style='color:black'>   Konaković M., Crane K., Deng B., Bouaziz S., Piker D.,
+and Pauly M., &quot;Beyond developable: computational design and fabrication
+with auxetic materials&quot;, ACM Transactions on Graphics, 35(4):89, 2016. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[41]</span></b><span lang=EN
+style='color:black'>   Rossing L., Scharff R.B.N., Chompff B., Wang C.C.L., and
+Doubrovski E.L., &quot;Bonding between silicones and thermoplastics using 3D
+printed mechanical interlocking&quot;, Materials &amp; Design, 186(108254),
+2020. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[42]</span></b><span lang=EN
+style='color:black'>   Bächer M., Hepp B., Pece F., Kry P.G., Bickel B., Thomaszewski
+B., and Hilliges O., &quot;DefSense: Computational design of customized
+deformable input devices&quot;, ACM Proceedings of the 2016 CHI Conference on
+Human Factors in Computing Systems, 3806-3816. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[43]   </span></b><span lang=EN
+style='color:black'>Anguelov D., Srinivasan P., Koller D., Thrun S., Rodgers J.,
+and Davis J.,<b> </b>&quot;SCAPE: shape completion and animation of
+people&quot;, ACM Transactions on Graphics, 24(3):408-416, 2005. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[44]</span></b><span lang=EN
+style='color:black'>   Fan R., Jin X., and Wang C.C.L., &quot;Multi-region
+segmentation based on compact shape prior&quot;, IEEE Transactions on
+Automation Science and Technology, 12(3):1047-1058, 2015. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[45]</span></b><span lang=EN
+style='color:black'>   Musialski P., Hafner C., Rist F., Birsak M., Wimmer M.,
+and Kobbelt L., &quot;Non-linear shape optimization using local subspace
+projections&quot;, ACM Transactions on Graphics, 35(4):87, 2016. </span></p>
+
+<p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+normal'><b><span lang=EN style='color:black'>[46]</span></b><span lang=EN
+style='color:black'>   Tan Q., Gao L., Lai Y.K., and Xia S., &quot;Variational
+autoencoders for deforming 3D mesh models&quot;, IEEE/CVF Conference on
+Computer Vision and Pattern Recognition, 5841-5850, 2018. </span></p>
+
+<p class=MsoNormal style='line-height:normal'><span lang=EN style='color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
