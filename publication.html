@@ -24,6 +24,33 @@
 
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" no resize><td valign=top align=left width=170>
+<img src="pubs/TMECHDefMannequin.jpg" width="160" border="0"></td><td width=830 valign=top>
+Yingjun Tian, Guoxin Fang, Justas Petrulis, Andrew Weightman, and <B>Charlie C.L. Wang</B>, "Soft robotic mannequin: design and algorithm for deformation control", IEEE/ASME Transactions on Mechatronics, Focused Section on TMECH/AIM Emerging Topics, accepted, May 2022. 
+<a href="https://youtu.be/-flP9WohxzU" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+This paper presents a novel soft robotic system for a deformable mannequin that can be employed to physically realize the 3D geometry of different human bodies. The soft membrane on a mannequin is deformed by inflating several curved chambers using pneumatic actuation. Controlling the freeform surface of a soft membrane by adjusting the pneumatic actuation in different chambers is challenging as the membrane's shape is commonly determined by interaction between all chambers. Using vision feedback provided by a structured-light based 3D scanner, we developed an efficient algorithm to compute the optimized actuation of all chambers which could drive the soft membrane to deform into the best approximation of different target shapes. Our algorithm converges quickly by including the step of pose estimation in the loop of optimization, and the time-consuming step for evaluating derivatives on the deformable membrane is avoided by using the Broyden update when possible. The effectiveness of our soft robotic mannequin with controlled deformation has been verified in experiments.
+<p></p></tr>
+</table>
+<BR><BR>
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/TMECHJacoLearning.jpg" width="160" border="0"></td><td width=830 valign=top>
+Guoxin Fang, Yingjun Tian, Zhi-Xin Yang, Jo M.P. Geraedts, and <B>Charlie C.L. Wang</B>, "<a href="http://arxiv.org/abs/2012.13965" target="new">Efficient Jacobian-based inverse kinematics with sim-to-real transfer of soft robots by learning</a>", IEEE/ASME Transactions on Mechatronics, accepted, May 2022. 
+<a href="https://youtu.be/-flP9WohxzU" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+This paper presents an efficient learning-based method to solve the <I>inverse kinematic</I> (IK) problem on soft robots with highly non-linear deformation. The major challenge of efficiently computing IK for such robots is due to the lack of analytical formulation for either forward or inverse kinematics. To address this challenge, we employ neural networks to learn both the mapping function of forward kinematics and also the Jacobian of this function. As a result, Jacobian-based iteration can be applied to solve the IK problem. A sim-to-real training transfer strategy is conducted to make this approach more practical. We first generate a large number of samples in a simulation environment for learning both the kinematic and the Jacobian networks of a soft robot design. Thereafter, a sim-to-real layer of differentiable neurons is employed to map the results of simulation to the physical hardware, where this sim-to-real layer can be learned from a very limited number of training samples generated on the hardware. The effectiveness of our approach has been verified on pneumatic-driven soft robots for path following and interactive positioning.
+<p></p></tr>
+</table>
+<BR><BR>
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/BAMRoboBioprinting.jpg" width="160" border="0"></td><td width=830 valign=top>
 Zeyu Zhang, Chenming Wu, Chengkai Dai, Qingqing Shi, Guoxin Fang, Dongfang Xie, Yong-Jin Liu, <B>Charlie C.L. Wang</B>, and Xiu-Jie Wang, "<a href="https://doi.org/10.1016/j.bioactmat.2022.02.009" target="new">A multi-axis robot-based bioprinting platform for bioactive artificial blood vessel and cardiac tissue fabrication</a>", Bioactive Materials, vol.18, pp.138-150, December 2022. <a href="https://youtu.be/ymoosfEH0aw" target="new">[Video@YouTube]</a> 
@@ -50,19 +77,6 @@ Yabin Xu, Liangliang Nan, Laishui Zhou, Jun Wang, and <B>Charlie C.L. Wang</B>, 
 <B>Abstract</B>
 <BR>
 Reconstruction of high-fidelity 3D objects or scenes is a fundamental research problem. Recent advances in RGB-D fusion have demonstrated the potential of producing 3D models from consumer-level RGB-D cameras. However, due to the discrete nature and limited resolution of their surface representations (e.g., point- or voxel-based), existing approaches suffer from the accumulation of errors in camera tracking and distortion in the reconstruction, which leads to an unsatisfactory 3D reconstruction. In this paper, we present a method using on-the-fly implicits of <I>Hermite Radial Basis Functions</I> (HRBFs) as a continuous surface representation for camera tracking in an existing RGB-D fusion framework. Furthermore, curvature estimation and confidence evaluation are coherently derived from the inherent surface properties of the on-the-fly HRBF implicits, which devote to a data fusion with better quality. We argue that our continuous but on-the-fly surface representation can effectively mitigate the impact of noise with its robustness and constrain the reconstruction with inherent surface smoothness when being compared with discrete representations. Experimental results on various real-world and synthetic datasets demonstrate that our HRBF-fusion outperforms the state-of-the-art approaches in terms of tracking robustness and reconstruction accuracy.
-<p></p></tr>
-</table>
-<BR><BR>
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/TMECHJacoLearning.jpg" width="160" border="0"></td><td width=830 valign=top>
-Guoxin Fang, Yingjun Tian, Zhi-Xin Yang, Jo M.P. Geraedts, and <B>Charlie C.L. Wang</B>, "<a href="http://arxiv.org/abs/2012.13965" target="new">Efficient Jacobian-based inverse kinematics with sim-to-real transfer of soft robots by learning</a>", IEEE/ASME Transactions on Mechatronics, accepted, 2022. 
-<a href="https://youtu.be/-flP9WohxzU" target="new">[Video@YouTube]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-This paper presents an efficient learning-based method to solve the <I>inverse kinematic</I> (IK) problem on soft robots with highly non-linear deformation. The major challenge of efficiently computing IK for such robots is due to the lack of analytical formulation for either forward or inverse kinematics. To address this challenge, we employ neural networks to learn both the mapping function of forward kinematics and also the Jacobian of this function. As a result, Jacobian-based iteration can be applied to solve the IK problem. A sim-to-real training transfer strategy is conducted to make this approach more practical. We first generate a large number of samples in a simulation environment for learning both the kinematic and the Jacobian networks of a soft robot design. Thereafter, a sim-to-real layer of differentiable neurons is employed to map the results of simulation to the physical hardware, where this sim-to-real layer can be learned from a very limited number of training samples generated on the hardware. The effectiveness of our approach has been verified on pneumatic-driven soft robots for path following and interactive positioning.
 <p></p></tr>
 </table>
 <BR><BR>
