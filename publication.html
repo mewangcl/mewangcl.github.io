@@ -23,7 +23,7 @@
 <BR><BR><B>Recent Papers</B>
 <BR><BR>
 
-<!---------------
+<!---------
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
@@ -37,53 +37,7 @@ Multi-axis motion introduces more degrees of freedom into the process of 3D prin
 </table>
 <BR><BR>
 
------------>
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/IROSOutOfPlaneOptm.jpg" width="160" border="0"></td><td width=830 valign=top>
-Renbo Su, Yingjun Tian, Mingwei Du, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1109/LRA.2022.3193487" target="new">Optimizing out-of-plane stiffness for soft grippers</a>", 
-IEEE Robotics and Automation Letters, Presented at IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022), Kyoto, Japan, October 23-27, 2022, vol.7, no.4, pp.10430-10437, October 2022. 
-<a href="https://arxiv.org/abs/2207.08215" target="new">[arXiv]</a> 
-<a href="https://youtu.be/pau7VKA2-ro" target="new">[Video@YouTube]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-In this paper, we presented a data-driven framework to optimize the out-of-plane stiffness for soft grippers to achieve mechanical properties as hard-to-twist and easy-to-bend. The effectiveness of this method is demonstrated in the design of a <I>soft pneumatic bending actuator</I> (SPBA). First, a new objective function is defined to quantitatively evaluate the out-of-plane stiffness as well as the bending performance. Then, sensitivity analysis is conducted on the parametric model of an SPBA design to determine the optimized design parameters with the help of <I>Finite Element Analysis</I> (FEA). To enable the computation of numerical optimization, a data-driven approach is employed to learn a cost function that directly represents the out-of-plane stiffness as a differentiable function of the design variables. A gradient-based method is used to maximize the out-of-plane stiffness of the SPBA while ensuring specific bending performance. The effectiveness of our method has been demonstrated in physical experiments taken on 3D-printed grippers.
-<p></p></tr>
-</table>
-<BR><BR>
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/IROSCollisionAwareGeoSim.jpg" width="160" border="0"></td><td width=830 valign=top>
-Guoxin Fang, Yingjun Tian, Andrew Weightman, and <B>Charlie C.L. Wang</B>, "<a href="https://arxiv.org/abs/2203.02054" target="new">Collision-aware fast simulation for soft robots by optimization-based geometric computing</a>", IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022), Kyoto, Japan, October 23-27, 2022. 
-<a href="https://github.com/YingGwan/collisionAwareSOROSimulator" target="new">[Source Code]</a>
-<a href="https://youtu.be/cI8em6bpqKw" target="new">[Video@YouTube]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-Soft robots are able to safely interact with environments because of their mechanical compliance. Self-collision is also employed in the modern design of soft robots to enhance their performance in different tasks. However, developing an efficient and reliable simulator which can handle the collision response well, is still a challenging task in the research of soft robotics. This paper presents a collision-aware simulator based on geometric optimization, in which we develop a highly efficient and realistic collision checking / response model incorporating a hyperelastic material property. Both actuated deformation and collision response for soft robots are formulated as geometry-based objectives. The collision-free body of a soft robot can be obtained by minimizing the geometry-based objective function. Different from the FEA-based physical simulation, the proposed pipeline performs a much lower computational cost. Moreover, adaptive remeshing is applied to achieve the improvement of the convergence when dealing with soft robots having large volume variations. Experimental tests are conducted on different soft robots to verify the performance of our approach.
-<p></p></tr>
-</table>
-<BR><BR>
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" no resize><td valign=top align=left width=170>
-<img src="pubs/TMECHDefMannequin.jpg" width="160" border="0"></td><td width=830 valign=top>
-Yingjun Tian, Guoxin Fang, Justas Petrulis, Andrew Weightman, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1109/TMECH.2022.3175759" target="new">Soft robotic mannequin: design and algorithm for deformation control</a>", IEEE/ASME Transactions on Mechatronics, Focused Section on TMECH/AIM Emerging Topics, vol.27, no.4, pp.1820-1828, August 2022. 
-<a href="https://arxiv.org/abs/2205.05166" target="new">[arXiv]</a> 
-<a href="https://youtu.be/5m2dzgiHc_8" target="new">[Video@YouTube]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-This paper presents a novel soft robotic system for a deformable mannequin that can be employed to physically realize the 3D geometry of different human bodies. The soft membrane on a mannequin is deformed by inflating several curved chambers using pneumatic actuation. Controlling the freeform surface of a soft membrane by adjusting the pneumatic actuation in different chambers is challenging as the membrane's shape is commonly determined by interaction between all chambers. Using vision feedback provided by a structured-light based 3D scanner, we developed an efficient algorithm to compute the optimized actuation of all chambers which could drive the soft membrane to deform into the best approximation of different target shapes. Our algorithm converges quickly by including the step of pose estimation in the loop of optimization, and the time-consuming step for evaluating derivatives on the deformable membrane is avoided by using the Broyden update when possible. The effectiveness of our soft robotic mannequin with controlled deformation has been verified in experiments.
-<p></p></tr>
-</table>
-<BR><BR>
+-------->
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
@@ -117,19 +71,34 @@ our bioprinting system is capable to generate vascularized, contractible, and lo
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/TOGHRBFFusion.jpg" width="160" border="0"></td><td width=830 valign=top>
-Yabin Xu, Liangliang Nan, Laishui Zhou, Jun Wang, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1145/3516521" target="new">HRBF-Fusion: Accurate 3D reconstruction from RGB-D data using on-the-fly implicits</a>", ACM Transactions on Graphics, vol.41, no.3, article no.35 (19 pages), June 2022. 
-<a href="pubs/TOGHRBFFusion.pdf" target="new">[PDF]</a> 
-<a href="https://arxiv.org/abs/2202.01829" target="new">[arXiv]</a> 
-<a href="https://github.com/YabinXuTUD/HRBFFusion3D" target="new">[Source Code]</a> 
-<a href="https://youtu.be/ybhNYzMtSVo" target="new">[Video@YouTube]</a> 
+<img src="pubs/IROSOutOfPlaneOptm.jpg" width="160" border="0"></td><td width=830 valign=top>
+Renbo Su, Yingjun Tian, Mingwei Du, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1109/LRA.2022.3193487" target="new">Optimizing out-of-plane stiffness for soft grippers</a>", 
+IEEE Robotics and Automation Letters, Presented at IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022), Kyoto, Japan, October 23-27, 2022, vol.7, no.4, pp.10430-10437, October 2022. 
+<a href="https://arxiv.org/abs/2207.08215" target="new">[arXiv]</a> 
+<a href="https://youtu.be/pau7VKA2-ro" target="new">[Video@YouTube]</a> 
 <BR><BR>
 <B>Abstract</B>
 <BR>
-Reconstruction of high-fidelity 3D objects or scenes is a fundamental research problem. Recent advances in RGB-D fusion have demonstrated the potential of producing 3D models from consumer-level RGB-D cameras. However, due to the discrete nature and limited resolution of their surface representations (e.g., point- or voxel-based), existing approaches suffer from the accumulation of errors in camera tracking and distortion in the reconstruction, which leads to an unsatisfactory 3D reconstruction. In this paper, we present a method using on-the-fly implicits of <I>Hermite Radial Basis Functions</I> (HRBFs) as a continuous surface representation for camera tracking in an existing RGB-D fusion framework. Furthermore, curvature estimation and confidence evaluation are coherently derived from the inherent surface properties of the on-the-fly HRBF implicits, which devote to a data fusion with better quality. We argue that our continuous but on-the-fly surface representation can effectively mitigate the impact of noise with its robustness and constrain the reconstruction with inherent surface smoothness when being compared with discrete representations. Experimental results on various real-world and synthetic datasets demonstrate that our HRBF-fusion outperforms the state-of-the-art approaches in terms of tracking robustness and reconstruction accuracy.
+In this paper, we presented a data-driven framework to optimize the out-of-plane stiffness for soft grippers to achieve mechanical properties as hard-to-twist and easy-to-bend. The effectiveness of this method is demonstrated in the design of a <I>soft pneumatic bending actuator</I> (SPBA). First, a new objective function is defined to quantitatively evaluate the out-of-plane stiffness as well as the bending performance. Then, sensitivity analysis is conducted on the parametric model of an SPBA design to determine the optimized design parameters with the help of <I>Finite Element Analysis</I> (FEA). To enable the computation of numerical optimization, a data-driven approach is employed to learn a cost function that directly represents the out-of-plane stiffness as a differentiable function of the design variables. A gradient-based method is used to maximize the out-of-plane stiffness of the SPBA while ensuring specific bending performance. The effectiveness of our method has been demonstrated in physical experiments taken on 3D-printed grippers.
 <p></p></tr>
 </table>
 <BR><BR>
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/IROSCollisionAwareGeoSim.jpg" width="160" border="0"></td><td width=830 valign=top>
+Guoxin Fang, Yingjun Tian, Andrew Weightman, and <B>Charlie C.L. Wang</B>, "<a href="https://arxiv.org/abs/2203.02054" target="new">Collision-aware fast simulation for soft robots by optimization-based geometric computing</a>", IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022), Kyoto, Japan, October 23-27, 2022. 
+<a href="https://github.com/YingGwan/collisionAwareSOROSimulator" target="new">[Source Code]</a>
+<a href="https://youtu.be/cI8em6bpqKw" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+Soft robots are able to safely interact with environments because of their mechanical compliance. Self-collision is also employed in the modern design of soft robots to enhance their performance in different tasks. However, developing an efficient and reliable simulator which can handle the collision response well, is still a challenging task in the research of soft robotics. This paper presents a collision-aware simulator based on geometric optimization, in which we develop a highly efficient and realistic collision checking / response model incorporating a hyperelastic material property. Both actuated deformation and collision response for soft robots are formulated as geometry-based objectives. The collision-free body of a soft robot can be obtained by minimizing the geometry-based objective function. Different from the FEA-based physical simulation, the proposed pipeline performs a much lower computational cost. Moreover, adaptive remeshing is applied to achieve the improvement of the convergence when dealing with soft robots having large volume variations. Experimental tests are conducted on different soft robots to verify the performance of our approach.
+<p></p></tr>
+</table>
+<BR><BR>
+
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
@@ -142,6 +111,37 @@ Bin Liu, Xiuping Liu, Zhixin Yang, and <B>Charlie C.L. Wang</B>, "<a href="https
 <B>Abstract</B>
 <BR>
 In this paper, we revisit the problem of 3D human modeling from two orthogonal silhouettes of individuals (i.e., front and side views). Different from our prior work, a supervised learning approach based on <I>convolutional neural network</I> (CNN) is investigated to solve the problem by establishing a mapping function that can effectively extract features from two silhouettes and fuse them into coefficients in the shape space of human bodies. A new CNN structure is proposed in our work to extract not only the discriminative features of front and side views and also their mixed features for the mapping function. 3D human models with high accuracy are synthesized from coefficients generated by the mapping function. Existing CNN approaches for 3D human modeling usually learn a large number of parameters (from 8M to 350M) from two binary images. Differently, we investigate a new network architecture and conduct the samples on silhouettes as input. As a consequence, more accurate models can be generated by our network with only 2.5M coefficients. The training of our network is conducted on samples obtained by augmenting a publicly accessible dataset. Learning transfer by using datasets with a smaller number of scanned models is applied to our network to enable the function of generating results with gender-oriented (or geographical) patterns.
+<p></p></tr>
+</table>
+<BR><BR>
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" no resize><td valign=top align=left width=170>
+<img src="pubs/TMECHDefMannequin.jpg" width="160" border="0"></td><td width=830 valign=top>
+Yingjun Tian, Guoxin Fang, Justas Petrulis, Andrew Weightman, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1109/TMECH.2022.3175759" target="new">Soft robotic mannequin: design and algorithm for deformation control</a>", IEEE/ASME Transactions on Mechatronics, Focused Section on TMECH/AIM Emerging Topics, vol.27, no.4, pp.1820-1828, August 2022. 
+<a href="https://arxiv.org/abs/2205.05166" target="new">[arXiv]</a> 
+<a href="https://youtu.be/5m2dzgiHc_8" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+This paper presents a novel soft robotic system for a deformable mannequin that can be employed to physically realize the 3D geometry of different human bodies. The soft membrane on a mannequin is deformed by inflating several curved chambers using pneumatic actuation. Controlling the freeform surface of a soft membrane by adjusting the pneumatic actuation in different chambers is challenging as the membrane's shape is commonly determined by interaction between all chambers. Using vision feedback provided by a structured-light based 3D scanner, we developed an efficient algorithm to compute the optimized actuation of all chambers which could drive the soft membrane to deform into the best approximation of different target shapes. Our algorithm converges quickly by including the step of pose estimation in the loop of optimization, and the time-consuming step for evaluating derivatives on the deformable membrane is avoided by using the Broyden update when possible. The effectiveness of our soft robotic mannequin with controlled deformation has been verified in experiments.
+<p></p></tr>
+</table>
+<BR><BR>
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/TOGHRBFFusion.jpg" width="160" border="0"></td><td width=830 valign=top>
+Yabin Xu, Liangliang Nan, Laishui Zhou, Jun Wang, and <B>Charlie C.L. Wang</B>, "<a href="https://doi.org/10.1145/3516521" target="new">HRBF-Fusion: Accurate 3D reconstruction from RGB-D data using on-the-fly implicits</a>", ACM Transactions on Graphics, vol.41, no.3, article no.35 (19 pages), June 2022. 
+<a href="pubs/TOGHRBFFusion.pdf" target="new">[PDF]</a> 
+<a href="https://arxiv.org/abs/2202.01829" target="new">[arXiv]</a> 
+<a href="https://github.com/YabinXuTUD/HRBFFusion3D" target="new">[Source Code]</a> 
+<a href="https://youtu.be/ybhNYzMtSVo" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+Reconstruction of high-fidelity 3D objects or scenes is a fundamental research problem. Recent advances in RGB-D fusion have demonstrated the potential of producing 3D models from consumer-level RGB-D cameras. However, due to the discrete nature and limited resolution of their surface representations (e.g., point- or voxel-based), existing approaches suffer from the accumulation of errors in camera tracking and distortion in the reconstruction, which leads to an unsatisfactory 3D reconstruction. In this paper, we present a method using on-the-fly implicits of <I>Hermite Radial Basis Functions</I> (HRBFs) as a continuous surface representation for camera tracking in an existing RGB-D fusion framework. Furthermore, curvature estimation and confidence evaluation are coherently derived from the inherent surface properties of the on-the-fly HRBF implicits, which devote to a data fusion with better quality. We argue that our continuous but on-the-fly surface representation can effectively mitigate the impact of noise with its robustness and constrain the reconstruction with inherent surface smoothness when being compared with discrete representations. Experimental results on various real-world and synthetic datasets demonstrate that our HRBF-fusion outperforms the state-of-the-art approaches in terms of tracking robustness and reconstruction accuracy.
 <p></p></tr>
 </table>
 <BR><BR>
