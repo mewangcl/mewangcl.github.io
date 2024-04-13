@@ -22,20 +22,40 @@
 
 <BR><BR><B>Recent Papers</B><BR>
 
-<!----------
+<!-------
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/CAGDBimanualGraspLearning.jpg" width="160" border="0"></td><td width=830 valign=top>
-Shiyao Wang, Xiuping Liu, <B>Charlie C.L. Wang</B>, and Jian Liu, "Physics-aware iterative learning and prediction of saliency map for bimanual grasp planning", Computer Aided Geometric Design, accepted, April 2024. [arXiv]
+<img src="pubs/SIG2024NeuralSlicer.jpg" width="160" border="0"></td><td width=830 valign=top>
+Tao Liu, Tiny Zhang, Yongxue Chen, Yuming Huang, and <B>Charlie C.L. Wang</B>, "Neural slicer for multi-axis 3D printing", ACM Transactions on Graphics (SIGGRAPH 2024), accepted, April 2024. [Project] [PDF] [Source Code] [Video@YouTube]
 <BR><BR>
 <B>Abstract</B>
 <BR>
-Learning the skill of human bimanual grasping can extend the capabilities of robotic systems when grasping large or heavy objects. However, it requires a much larger search space for grasp points than single-hand grasping and numerous bimanual grasping annotations for network learning, making both data-driven or analytical grasping methods inefficient and insufficient. We propose a framework for bimanual grasp saliency learning that aims to predict the contact points for bimanual grasping based on existing human single-handed grasping data. We learn saliency corresponding vectors through minimal bimanual contact annotations that establishes correspondences between grasp positions of both hands, capable of eliminating the need for training a large-scale bimanual grasp dataset. The existing single-handed grasp saliency value serves as the initial value for bimanual grasp saliency, and we learn a saliency adjusted score that adds the initial value to obtain the final bimanual grasp saliency value, capable of predicting preferred bimanual grasp positions from single-handed grasp saliency. We also introduce a physics-balance loss function and a physics-aware refinement module that enables physical grasp balance, capable of enhancing the generalization of unknown objects. Comprehensive experiments in simulation and comparisons on dexterous grippers have demonstrated that our method can achieve balanced bimanual grasping effectively.
+We introduce a novel neural network-based computational pipeline as a representation-agnostic slicer for multi-axis 3D printing. This advanced slicer can work on models with diverse representations and intricate topology. The approach involves employing neural networks to establish a deformation mapping, defining a scalar field in the space surrounding an input model. Isosurfaces are subsequently extracted from this field to generate curved layers for 3D printing. Creating a differentiable pipeline enables us to optimize the mapping through loss functions directly defined on the field gradients as the local printing directions. New loss functions have been introduced to meet the manufacturing objectives of support-free and strength reinforcement. Our new computation pipeline relies less on the initial values of the field and can generate slicing results with significantly improved performance.
 </td>
 <p></p></tr>
 </table>
 <BR>
---------->
+------->
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/TMECHSensing4Ctrl.jpg" width="160" border="0"></td><td width=830 valign=top>
+Yinan Meng, Guoxin Fang, Jiong Yang, Yuhu Guo, and <B>Charlie C.L. Wang</B>, 
+"<a href="https://doi.org/10.1109/TMECH.2023.3320980" target="new">Spring-IMU fusion based proprioception for feedback control of soft manipulators</a>", 
+IEEE/ASME Transactions on Mechatronics, Focused Section on Compliant Mechanisms for Mechatronics, accepted, September 2023. 
+<a href="http://arxiv.org/abs/2309.14279" target="new">[arXiv]</a> 
+<a href="https://youtu.be/IqMtvoxj5Jc" target="new">[Video@YouTube]</a>
+<BR><BR>
+<B>Abstract</B>
+<BR>
+This paper presents a novel framework to realize proprioception and closed-loop control for soft manipulators. Deformations with large elongation and large bending can be precisely predicted using geometry-based sensor signals obtained from the inductive springs and the <I>inertial measurement units</I> (IMUs) with the help of machine learning techniques. Multiple geometric signals are fused into robust pose estimations, and a data-efficient training process is achieved after applying the strategy of sim-to-real transfer. As a result, we can achieve proprioception that is robust to the variation of external loading and has an average error of 0.7% across the workspace on a pneumatic-driven soft manipulator. The realized proprioception on soft manipulator is then contributed to building a sensor-space based algorithm for closed-loop control. A gradient descent solver is developed to drive the end-effector to achieve the required poses by iteratively computing a sequence of reference sensor signals. A conventional controller is employed in the inner loop of our algorithm to update actuators (i.e., the pressures in chambers) for approaching a reference signal in the sensor-space. The systematic function of closed-loop control has been demonstrated in tasks like path following and pick-and-place under different external loads.
+</td>
+<p></p></tr>
+</table>
+<BR>
+
+
+
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
@@ -70,25 +90,6 @@ Laser powder bed fusion (LPBF) is a widely used metal additive manufacturing tec
 
 
 <a name="2023"></a>
-
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/TMECHSensing4Ctrl.jpg" width="160" border="0"></td><td width=830 valign=top>
-Yinan Meng, Guoxin Fang, Jiong Yang, Yuhu Guo, and <B>Charlie C.L. Wang</B>, 
-"<a href="https://doi.org/10.1109/TMECH.2023.3320980" target="new">Spring-IMU fusion based proprioception for feedback control of soft manipulators</a>", 
-IEEE/ASME Transactions on Mechatronics, Focused Section on Compliant Mechanisms for Mechatronics, accepted, September 2023. 
-<a href="http://arxiv.org/abs/2309.14279" target="new">[arXiv]</a> 
-<a href="https://youtu.be/IqMtvoxj5Jc" target="new">[Video@YouTube]</a>
-<BR><BR>
-<B>Abstract</B>
-<BR>
-This paper presents a novel framework to realize proprioception and closed-loop control for soft manipulators. Deformations with large elongation and large bending can be precisely predicted using geometry-based sensor signals obtained from the inductive springs and the <I>inertial measurement units</I> (IMUs) with the help of machine learning techniques. Multiple geometric signals are fused into robust pose estimations, and a data-efficient training process is achieved after applying the strategy of sim-to-real transfer. As a result, we can achieve proprioception that is robust to the variation of external loading and has an average error of 0.7% across the workspace on a pneumatic-driven soft manipulator. The realized proprioception on soft manipulator is then contributed to building a sensor-space based algorithm for closed-loop control. A gradient descent solver is developed to drive the end-effector to achieve the required poses by iteratively computing a sequence of reference sensor signals. A conventional controller is employed in the inner loop of our algorithm to update actuators (i.e., the pressures in chambers) for approaching a reference signal in the sensor-space. The systematic function of closed-loop control has been demonstrated in tasks like path following and pick-and-place under different external loads.
-</td>
-<p></p></tr>
-</table>
-<BR>
 
 
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
