@@ -39,6 +39,26 @@ To enable the design and manufacturing of optimized composite structures using f
 </table>
 <BR><BR>
 
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/CADProcPlanDirectCtrl.jpg" width="160" border="0"></td>
+<td width=830 valign=top>
+Neelotpal Dutta, Tianyu Zhang, Tao Liu, Yongxue Chen, and <B>Charlie C.L. Wang</B>, "Implicit neural field-based process planning for multi-axis manufacturing: direct control over collision avoidance and toolpath geometry", Computer-Aided Design, accepted, May 2026. 
+<a href="https://arxiv.org/abs/2511.17578" target="new">[arXiv]</a> 
+[Project] 
+<a href="https://youtu.be/9nTCbEfrANk" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+Existing curved-layer-based process planning methods for multi-axis manufacturing address collisions only indirectly and generate toolpaths in a post-processing step, leaving toolpath geometry uncontrolled during optimization. We present an implicit neural field-based framework for multi-axis process planning that overcomes these limitations by embedding both layer generation and toolpath design within a single differentiable pipeline. Using sinusoidally activated neural networks to represent layers and toolpaths as implicit fields, our method enables direct evaluation of field values and derivatives at any spatial point, thereby allowing explicit collision avoidance and joint optimization of manufacturing layers and toolpaths. We further investigate how network hyperparameters and objective definitions influence singularity behavior and topology transitions, offering built-in mechanisms for regularization and stability control. The proposed approach is demonstrated on examples in both additive and subtractive manufacturing, validating its generality and effectiveness.
+<p></p></tr>
+</table>
+<BR><BR>
+
+
+
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/AMForceFeedbackFDM.jpg" width="160" border="0"></td>
@@ -431,24 +451,6 @@ Yinan Meng, Kun Qian, Jiong Yang, Renbo Su, Zhenhong Li, and <B>Charlie C.L. Wan
 <B>Abstract</B>
 <BR>
 The intrinsic compliance and high Degree-of-Freedom (DOF) of redundant soft manipulators facilitate safe interaction and flexible task execution. However, effective kinematic control remains highly challenging, as it must handle deformations caused by unknown external loads and avoid actuator saturation due to improper null-space regulation - particularly in confined environments. In this paper, we propose a Sensor-Space Imitation Learning Kinematic Control (SS-ILKC) framework to enable robust kinematic control under actuator saturation and restrictive environmental constraints. We employ a dual-learning strategy: a multi-goal sensor-space control framework based on reinforcement learning principle is trained in simulation to develop robust control policies for open spaces, while a generative adversarial imitation learning approach enables effective policy learning from sparse expert demonstrations for confined spaces. To enable zero-shot real-world deployment, a pre-processed sim-to-real transfer mechanism is proposed to mitigate the simulation-to-reality gap and accurately characterize actuator saturation limits. Experimental results demonstrate that our method can effectively control a pneumatically actuated soft manipulator, achieving precise path-following and object manipulation in confined environments under unknown loading conditions.
-<p></p></tr>
-</table>
-<BR><BR>
-
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/CADProcPlanDirectCtrl.jpg" width="160" border="0"></td>
-<td width=830 valign=top>
-Neelotpal Dutta, Tianyu Zhang, Tao Liu, Yongxue Chen, and <B>Charlie C.L. Wang</B>, "Implicit neural field-based process planning for multi-axis manufacturing: direct control over collision avoidance and toolpath geometry", under review, November 2025. 
-<a href="https://arxiv.org/abs/2511.17578" target="new">[arXiv]</a> 
-[Project] 
-<a href="https://youtu.be/9nTCbEfrANk" target="new">[Video@YouTube]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-Existing curved-layer-based process planning methods for multi-axis manufacturing address collisions only indirectly and generate toolpaths in a post-processing step, leaving toolpath geometry uncontrolled during optimization. We present an implicit neural field-based framework for multi-axis process planning that overcomes these limitations by embedding both layer generation and toolpath design within a single differentiable pipeline. Using sinusoidally activated neural networks to represent layers and toolpaths as implicit fields, our method enables direct evaluation of field values and derivatives at any spatial point, thereby allowing explicit collision avoidance and joint optimization of manufacturing layers and toolpaths. We further investigate how network hyperparameters and objective definitions influence singularity behavior and topology transitions, offering built-in mechanisms for regularization and stability control. The proposed approach is demonstrated on examples in both additive and subtractive manufacturing, validating its generality and effectiveness.
 <p></p></tr>
 </table>
 <BR><BR>
