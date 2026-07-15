@@ -440,17 +440,20 @@ Laser powder bed fusion (LPBF) is a widely used metal additive manufacturing tec
 <B>Under Review</B>
 <BR><BR>
 
+
+
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/IJRRSoftRobCtrlRLIL.jpg" width="160" border="0"></td>
+<img src="pubs/XXXX.jpg" width="160" border="0"></td>
 <td width=830 valign=top>
-Yinan Meng, Kun Qian, Jiong Yang, Renbo Su, Zhenhong Li, and <B>Charlie C.L. Wang</B>, "Sensor-space based robust kinematic control of redundant soft manipulator by learning", under review, July 2025. 
-<a href="https://arxiv.org/abs/2507.16842" target="new">[arXiv]</a> 
-<a href="https://youtu.be/nIJ1ZCadZB8" target="new">[Video@YouTube]</a> 
+Yu Jiang, Weiming Wang, Yingjun Tian, Tao Liu, Ilinca Pastia, Michael Petty, and <B>Charlie C.L. Wang</B>, "Compatibility-aware morphology learning for inverse design of functionally graded metamaterials under expensive multiphysics evaluation", under review, July 2026. 
+[SSRN] 
+<a href="https://github.com/JiangY13/FGMInverseDesign" target="new">[Project]</a> 
+<a href="https://youtu.be/4QzBhGkSdOQ" target="new">[Video@YouTube]</a> 
 <BR><BR>
 <B>Abstract</B>
 <BR>
-The intrinsic compliance and high Degree-of-Freedom (DOF) of redundant soft manipulators facilitate safe interaction and flexible task execution. However, effective kinematic control remains highly challenging, as it must handle deformations caused by unknown external loads and avoid actuator saturation due to improper null-space regulation - particularly in confined environments. In this paper, we propose a Sensor-Space Imitation Learning Kinematic Control (SS-ILKC) framework to enable robust kinematic control under actuator saturation and restrictive environmental constraints. We employ a dual-learning strategy: a multi-goal sensor-space control framework based on reinforcement learning principle is trained in simulation to develop robust control policies for open spaces, while a generative adversarial imitation learning approach enables effective policy learning from sparse expert demonstrations for confined spaces. To enable zero-shot real-world deployment, a pre-processed sim-to-real transfer mechanism is proposed to mitigate the simulation-to-reality gap and accurately characterize actuator saturation limits. Experimental results demonstrate that our method can effectively control a pneumatically actuated soft manipulator, achieving precise path-following and object manipulation in confined environments under unknown loading conditions.
+Functionally graded metamaterials offer a powerful route to spatially tailored properties and multifunctional performance. Their inverse design, however, remains challenging because spatially varying cellular topologies must remain geometrically compatible across neighboring regions, while multiphysics objectives often require time-consuming numerical evaluation. In this work, we introduce a compatibility-aware morphology learning framework for the inverse design of functionally graded metamaterials under expensive multiphysics evaluation. A low-dimensional morphology manifold is learned from cellular structure priors with explicit encoding of boundary compatibility, thereby embedding compatibility directly into the learned representation. This enables continuous geometric transitions among spatially varying unit-cell topologies. Coupled with latent-space optimization and prior-based dataset filtering, the proposed framework substantially reduces design complexity and makes inverse design tractable when target multiphysics are computationally expensive. Mechanical-acoustic inverse design is used as a representative example, in which acoustic response serves as the expensive physics to be simulated while mechanical performance is optimized concurrently. The resultant graded metamaterials are fabricated and experimentally validated through mechanical and acoustic absorption tests. Compared with specimens constructed from a single optimized cellular structure, the inversely designed graded metamaterials exhibit improvements of 58.1% in stiffness and 78.5% in failure loads under bending while maintaining high acoustic absorption.
 <p></p></tr>
 </table>
 <BR><BR>
@@ -473,18 +476,33 @@ Infrared-assisted 3D compaction printing of continuous carbon fiber-reinforced t
 <BR><BR>
 
 
-
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/TVCGFrameTwin.jpg" width="160" border="0"></td>
 <td width=830 valign=top>
-Wenting Wang, Zhuo Huang, Kun Qian, Neelotpal Dutta, Yuhu Guo, Yingjun Tian, Yeung Yam, and <B>Charlie C.L. Wang</B>, "FrameTwin: Curve-anchored Gaussian alignment from sparse views for adaptive wireframe 3D printing", under review, January 2026. 
+Wenting Wang, Zhuo Huang, Kun Qian, Neelotpal Dutta, Yuhu Guo, Yingjun Tian, Yeung Yam, and <B>Charlie C.L. Wang</B>, "FrameTwin: Curve-anchored Gaussian alignment from sparse views for adaptive wireframe 3D printing", under review, May 2026. 
 <a href="https://arxiv.org/abs/2605.09362" target="new">[arXiv]</a> 
 <a href="https://youtu.be/EFdGZgL31CY" target="new">[Video@YouTube]</a> 
 <BR><BR>
 <B>Abstract</B>
 <BR>
 We present FrameTwin, a curve-anchored Gaussian alignment framework that uses sparse-view images to close the control loop for adaptive wireframe 3D printing. Our key idea is to capture the deformation of thin wireframe structures from sparse-view images using Gaussian kernels anchored to parametric curves, yielding a compact and geometry-aware encoding that explicitly captures strut topology. Driven by a differentiable rendering pipeline, FrameTwin estimates a neural deformation field that aligns the partially printed target model with the deformed structure observed during fabrication, where the optimized curve-Gaussian representation serves as a digital twin of the evolving wireframe. Unlike general Gaussian-splatting approaches, our formulation constrains kernel placement along parametric curves, substantially reducing the ambiguity inherent in sparse-view observations of thin structures. The resultant deformation-field alignment enforces global consistency across all struts. By using the estimated deformation field to blend the distorted printed geometry with the remaining unprinted geometry, FrameTwin enables adaptive updates to future printing trajectories. We demonstrate that FrameTwin can robustly capture and compensate for deformation in wireframe models fabricated using a robotized 3D printing system.
+<p></p></tr>
+</table>
+<BR><BR>
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/IJRRSoftRobCtrlRLIL.jpg" width="160" border="0"></td>
+<td width=830 valign=top>
+Yinan Meng, Kun Qian, Jiong Yang, Renbo Su, Zhenhong Li, and <B>Charlie C.L. Wang</B>, "Sensor-space based robust kinematic control of redundant soft manipulator by learning", under review, July 2025. 
+<a href="https://arxiv.org/abs/2507.16842" target="new">[arXiv]</a> 
+<a href="https://youtu.be/nIJ1ZCadZB8" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+The intrinsic compliance and high Degree-of-Freedom (DOF) of redundant soft manipulators facilitate safe interaction and flexible task execution. However, effective kinematic control remains highly challenging, as it must handle deformations caused by unknown external loads and avoid actuator saturation due to improper null-space regulation - particularly in confined environments. In this paper, we propose a Sensor-Space Imitation Learning Kinematic Control (SS-ILKC) framework to enable robust kinematic control under actuator saturation and restrictive environmental constraints. We employ a dual-learning strategy: a multi-goal sensor-space control framework based on reinforcement learning principle is trained in simulation to develop robust control policies for open spaces, while a generative adversarial imitation learning approach enables effective policy learning from sparse expert demonstrations for confined spaces. To enable zero-shot real-world deployment, a pre-processed sim-to-real transfer mechanism is proposed to mitigate the simulation-to-reality gap and accurately characterize actuator saturation limits. Experimental results demonstrate that our method can effectively control a pneumatically actuated soft manipulator, achieving precise path-following and object manipulation in confined environments under unknown loading conditions.
 <p></p></tr>
 </table>
 <BR><BR>
