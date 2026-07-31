@@ -24,6 +24,26 @@
 
 <BR><BR><B>Recent Papers</B><BR><BR>
 
+
+
+<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
+<td align="center" valing="top" noresize><td valign=top align=left width=170>
+<img src="pubs/CADProcPlanDirectCtrl.jpg" width="160" border="0"></td>
+<td width=830 valign=top>
+Neelotpal Dutta, Tianyu Zhang, Tao Liu, Yongxue Chen, and <B>Charlie C.L. Wang</B>, "<A HREF="https://doi.org/10.1016/j.cad.2026.104086" target="new">Implicit neural field-based process planning for multi-axis manufacturing: direct control over collision avoidance and toolpath geometry</a>", Computer-Aided Design, vol.198, 104086 (30 pages), September 2026. 
+<a href="https://arxiv.org/abs/2511.17578" target="new">[arXiv]</a> 
+<A HREF="https://neelotpal-d.github.io/Implicit_MultiAxis/" target="new">[Project]</a> 
+<a href="https://youtu.be/9nTCbEfrANk" target="new">[Video@YouTube]</a> 
+<BR><BR>
+<B>Abstract</B>
+<BR>
+Existing curved-layer-based process planning methods for multi-axis manufacturing address collisions only indirectly and generate toolpaths in a post-processing step, leaving toolpath geometry uncontrolled during optimization. We present an implicit neural field-based framework for multi-axis process planning that overcomes these limitations by embedding both layer generation and toolpath design within a single differentiable pipeline. Using sinusoidally activated neural networks to represent layers and toolpaths as implicit fields, our method enables direct evaluation of field values and derivatives at any spatial point, thereby allowing explicit collision avoidance and joint optimization of manufacturing layers and toolpaths. We further investigate how network hyperparameters and objective definitions influence singularity behavior and topology transitions, offering built-in mechanisms for regularization and stability control. The proposed approach is demonstrated on examples in both additive and subtractive manufacturing, validating its generality and effectiveness.
+<p></p></tr>
+</table>
+<BR><BR>
+
+
+
 <table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
 <td align="center" valing="top" noresize><td valign=top align=left width=170>
 <img src="pubs/SIG2026LaminatedComposites.jpg" width="160" border="0"></td>
@@ -35,24 +55,6 @@ Tao Liu, Aoran Lyu, Yongxue Chen, Yu Jiang, Michael Petty, and <B>Charlie C.L. W
 <B>Abstract</B>
 <BR>
 To enable the design and manufacturing of optimized composite structures using fabric plies, we propose a field-driven optimization framework that jointly optimizes structural topology and manufacturable layers. A central challenge in this setting is the modeling and optimization of partial fabric layers with near-uniform thickness, which we formulate as a semi-continuous periodic scalar field parameterized by a continuous implicit neural vector field. Within this concurrent structure-layer optimization framework, we further derive a formulation of inter-layer anisotropic mechanical behavior that enables effective modeling of mechanical property transitions induced by partial-layer boundaries, together with additional objectives for manufacturability and field regularization. We validate the effectiveness of our approach through both numerical simulations and physical experiments, demonstrating that the optimized fabric-reinforced laminated composites achieve up to 43.8% higher stiffness compared to counterparts fabricated using planar fabric plies.
-<p></p></tr>
-</table>
-<BR><BR>
-
-
-
-<table width="1000" border="0" cellpadding="0" cellspacing="0" tableborder="0"><tr>
-<td align="center" valing="top" noresize><td valign=top align=left width=170>
-<img src="pubs/CADProcPlanDirectCtrl.jpg" width="160" border="0"></td>
-<td width=830 valign=top>
-Neelotpal Dutta, Tianyu Zhang, Tao Liu, Yongxue Chen, and <B>Charlie C.L. Wang</B>, "<A HREF="https://doi.org/10.1016/j.cad.2026.104086" target="new">Implicit neural field-based process planning for multi-axis manufacturing: direct control over collision avoidance and toolpath geometry</a>", Computer-Aided Design, accepted, May 2026. 
-<a href="https://arxiv.org/abs/2511.17578" target="new">[arXiv]</a> 
-<A HREF="https://neelotpal-d.github.io/Implicit_MultiAxis/" target="new">[Project]</a> 
-<a href="https://youtu.be/9nTCbEfrANk" target="new">[Video@YouTube]</a> 
-<BR><BR>
-<B>Abstract</B>
-<BR>
-Existing curved-layer-based process planning methods for multi-axis manufacturing address collisions only indirectly and generate toolpaths in a post-processing step, leaving toolpath geometry uncontrolled during optimization. We present an implicit neural field-based framework for multi-axis process planning that overcomes these limitations by embedding both layer generation and toolpath design within a single differentiable pipeline. Using sinusoidally activated neural networks to represent layers and toolpaths as implicit fields, our method enables direct evaluation of field values and derivatives at any spatial point, thereby allowing explicit collision avoidance and joint optimization of manufacturing layers and toolpaths. We further investigate how network hyperparameters and objective definitions influence singularity behavior and topology transitions, offering built-in mechanisms for regularization and stability control. The proposed approach is demonstrated on examples in both additive and subtractive manufacturing, validating its generality and effectiveness.
 <p></p></tr>
 </table>
 <BR><BR>
